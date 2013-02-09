@@ -7,6 +7,7 @@
 //
 
 #import "HealthAppDelegate.h"
+#import "ZBarSDK.h"
 
 @implementation HealthAppDelegate
 
