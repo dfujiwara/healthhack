@@ -10,6 +10,8 @@
 
 @interface HealthItemViewController : UIViewController
 
+@property (strong, nonatomic) UIView *indicatorView;
+
 - (id)initWithItemDictionary:(NSDictionary *)itemDictionary;
 
 @end

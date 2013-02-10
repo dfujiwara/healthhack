@@ -11,6 +11,8 @@
 // Dictionary keys.
 extern NSString *kProductNameKey;
 extern NSString *kProductUPCKey;
+extern NSString *kProductAllergens;
+extern NSString *kProductAllergenName;
 
 // Notification names.
 extern NSString *kNotificationNameShowItem;

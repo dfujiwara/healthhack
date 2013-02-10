@@ -9,7 +9,9 @@
 #import "HealthConstants.h"
 
 NSString *kProductNameKey = @"product_name";
-NSString *kProductUPCKey = @"UPC";
+NSString *kProductUPCKey = @"upc";
+NSString *kProductAllergens = @"allergens";
+NSString *kProductAllergenName = @"allergen_name";
 
 NSString *kNotificationNameShowItem = @"show_item";
 

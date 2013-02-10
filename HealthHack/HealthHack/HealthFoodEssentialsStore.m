@@ -147,9 +147,12 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
             ^void(NSDictionary *jsonResponse, NSError *error){
                 if (!error) {
                     NSLog(@"Label is %@", jsonResponse);
-                    NSString *productName = jsonResponse[@"product_name"];
+                    NSString *productName = jsonResponse[kProductNameKey];
+                    NSArray *productAllergens = jsonResponse[kProductAllergens];
                     NSDictionary *productDict = @{kProductNameKey: productName,
-                                                  kProductUPCKey: barcodeUPC};
+                                                  kProductUPCKey: barcodeUPC,
+                                                  kProductAllergens:productAllergens};
+
                     if (![self hasScannedBefore:productDict]) {
                         // Only add previously unscanned item.
                         [_scannedItems addObject:productDict];

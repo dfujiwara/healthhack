@@ -8,6 +8,7 @@
 
 #import "HealthItemViewController.h"
 #import "HealthConstants.h"
+#import "HealthFoodEssentialsStore.h"
 
 @interface HealthItemViewController () {
     NSDictionary *_itemDictionary;
@@ -37,6 +38,15 @@
     return [self initWithItemDictionary:nil];
 }
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _indicatorView.backgroundColor = [UIColor greenColor];
+
+    for (NSDictionary *allergenDict in _itemDictionary[kProductAllergens]) {
+        NSLog(@"Allergen is %@", allergenDict[kProductAllergenName]);
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
