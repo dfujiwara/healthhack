@@ -26,6 +26,19 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [_scannedItemListView reloadData];
+
+    if ([_scannedItemListView numberOfRowsInSection:0] == 0) {
+        UILabel *tableFooterLabel = [[UILabel alloc]
+                                     initWithFrame:CGRectMake(0, 0,
+                                                              _scannedItemListView.bounds.size.width,
+                                                              _scannedItemListView.bounds.size.height)];
+
+        tableFooterLabel.text = @"NO SCANNED ITEMS";
+        tableFooterLabel.textAlignment = NSTextAlignmentCenter;
+        _scannedItemListView.tableFooterView = tableFooterLabel;
+    } else {
+        _scannedItemListView.tableFooterView = nil;
+    }
 }
 
 
@@ -57,7 +70,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [[HealthFoodEssentialsStore sharedStore].scannedItems count];
+    NSInteger itemCount = [[HealthFoodEssentialsStore sharedStore].scannedItems count];
+    return itemCount;
 }
 
 
