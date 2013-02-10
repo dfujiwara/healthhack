@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBarSDK.h"
 
 @interface HealthAppDelegate : UIResponder <UIApplicationDelegate>
 

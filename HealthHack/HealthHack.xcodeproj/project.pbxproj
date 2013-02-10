@@ -26,10 +26,13 @@
 		6AC1516116C6F02F00EF64C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1515A16C6EFAF00EF64C2 /* QuartzCore.framework */; };
 		6AC1516216C6F03200EF64C2 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1515C16C6EFC900EF64C2 /* libiconv.dylib */; };
 		6AC1516316C6F03B00EF64C2 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1514916C6EF5D00EF64C2 /* libzbar.a */; };
+		6AC1516D16C7183200EF64C2 /* HealthItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1516B16C7183200EF64C2 /* HealthItemListViewController.m */; };
+		6AC1516E16C7183200EF64C2 /* HealthItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC1516C16C7183200EF64C2 /* HealthItemListViewController.xib */; };
+		6AC1517216C723F400EF64C2 /* HealthZBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1517116C723F400EF64C2 /* HealthZBarDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6AC1511116C6EE2500EF64C2 /* HealthHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AC1511116C6EE2500EF64C2 /* FoodGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC1511416C6EE2500EF64C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AC1511616C6EE2500EF64C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6AC1511816C6EE2500EF64C2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +75,11 @@
 		6AC1515816C6EFA500EF64C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		6AC1515A16C6EFAF00EF64C2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6AC1515C16C6EFC900EF64C2 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		6AC1516A16C7183200EF64C2 /* HealthItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthItemListViewController.h; sourceTree = "<group>"; };
+		6AC1516B16C7183200EF64C2 /* HealthItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthItemListViewController.m; sourceTree = "<group>"; };
+		6AC1516C16C7183200EF64C2 /* HealthItemListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthItemListViewController.xib; sourceTree = "<group>"; };
+		6AC1517016C723F400EF64C2 /* HealthZBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthZBarDelegate.h; sourceTree = "<group>"; };
+		6AC1517116C723F400EF64C2 /* HealthZBarDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthZBarDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +115,7 @@
 		6AC1511216C6EE2500EF64C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AC1511116C6EE2500EF64C2 /* HealthHack.app */,
+				6AC1511116C6EE2500EF64C2 /* FoodGuard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +138,8 @@
 		6AC1511A16C6EE2500EF64C2 /* HealthHack */ = {
 			isa = PBXGroup;
 			children = (
+				6AC1516F16C723C100EF64C2 /* Delegate */,
+				6AC1516416C716DD00EF64C2 /* Controllers */,
 				6AC1512316C6EE2500EF64C2 /* HealthAppDelegate.h */,
 				6AC1512416C6EE2500EF64C2 /* HealthAppDelegate.m */,
 				6AC1511B16C6EE2500EF64C2 /* Supporting Files */,
@@ -215,12 +225,31 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		6AC1516416C716DD00EF64C2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AC1516A16C7183200EF64C2 /* HealthItemListViewController.h */,
+				6AC1516B16C7183200EF64C2 /* HealthItemListViewController.m */,
+				6AC1516C16C7183200EF64C2 /* HealthItemListViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6AC1516F16C723C100EF64C2 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				6AC1517016C723F400EF64C2 /* HealthZBarDelegate.h */,
+				6AC1517116C723F400EF64C2 /* HealthZBarDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6AC1511016C6EE2500EF64C2 /* HealthHack */ = {
+		6AC1511016C6EE2500EF64C2 /* FoodGuard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AC1512E16C6EE2500EF64C2 /* Build configuration list for PBXNativeTarget "HealthHack" */;
+			buildConfigurationList = 6AC1512E16C6EE2500EF64C2 /* Build configuration list for PBXNativeTarget "FoodGuard" */;
 			buildPhases = (
 				6AC1510D16C6EE2500EF64C2 /* Sources */,
 				6AC1510E16C6EE2500EF64C2 /* Frameworks */,
@@ -230,9 +259,9 @@
 			);
 			dependencies = (
 			);
-			name = HealthHack;
+			name = FoodGuard;
 			productName = HealthHack;
-			productReference = 6AC1511116C6EE2500EF64C2 /* HealthHack.app */;
+			productReference = 6AC1511116C6EE2500EF64C2 /* FoodGuard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -257,7 +286,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AC1511016C6EE2500EF64C2 /* HealthHack */,
+				6AC1511016C6EE2500EF64C2 /* FoodGuard */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +304,7 @@
 				6AC1515116C6EF5D00EF64C2 /* zbar-help.html in Resources */,
 				6AC1515216C6EF5D00EF64C2 /* zbar-helpicons.png in Resources */,
 				6AC1515316C6EF5D00EF64C2 /* zbar-samples.png in Resources */,
+				6AC1516E16C7183200EF64C2 /* HealthItemListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +317,8 @@
 			files = (
 				6AC1512116C6EE2500EF64C2 /* main.m in Sources */,
 				6AC1512516C6EE2500EF64C2 /* HealthAppDelegate.m in Sources */,
+				6AC1516D16C7183200EF64C2 /* HealthItemListViewController.m in Sources */,
+				6AC1517216C723F400EF64C2 /* HealthZBarDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +434,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AC1512E16C6EE2500EF64C2 /* Build configuration list for PBXNativeTarget "HealthHack" */ = {
+		6AC1512E16C6EE2500EF64C2 /* Build configuration list for PBXNativeTarget "FoodGuard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AC1512F16C6EE2500EF64C2 /* Debug */,

@@ -7,16 +7,65 @@
 //
 
 #import "HealthAppDelegate.h"
+
 #import "ZBarSDK.h"
+
+#import "HealthItemListViewController.h"
+#import "HealthZBarDelegate.h"
+
+@interface HealthAppDelegate () {
+    HealthZBarDelegate *_zbarDelegate;
+}
+
+- (ZBarReaderViewController *)setupBarReaderViewController;
+
+@end
+
 
 @implementation HealthAppDelegate
 
+#pragma mark - private methods
+
+- (ZBarReaderViewController *)setupBarReaderViewController {
+    ZBarReaderViewController *reader = [ZBarReaderViewController new];
+
+    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+    _zbarDelegate = [[HealthZBarDelegate alloc]
+                     initWithCompletionHandler:nil];
+    reader.readerDelegate = _zbarDelegate;
+    
+    ZBarImageScanner *scanner = reader.scanner;
+    // TODO: (optional) additional reader configuration here
+
+    // EXAMPLE: disable rarely used I2/5 to improve performance
+    [scanner setSymbology: ZBAR_I25
+                   config: ZBAR_CFG_ENABLE
+                       to: 0];
+    return reader;
+}
+
+
+#pragma mark - public methods
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [[UIWindow alloc]
+                   initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    HealthItemListViewController *itemListViewController =
+        [[HealthItemListViewController alloc] initWithNibName:nil bundle:nil];
+
+    ZBarReaderViewController *reader = [self setupBarReaderViewController];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:@[reader, itemListViewController]];
+
+    [self.window setRootViewController:tabBarController];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 
