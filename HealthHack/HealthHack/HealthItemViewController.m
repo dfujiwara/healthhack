@@ -76,12 +76,15 @@
     switch(maxAllergentIndicator) {
         case 2:
             _indicatorView.backgroundColor = [UIColor redColor];
+            _indicatorLabel.text = @"Sad Face";
             break;
         case 1:
             _indicatorView.backgroundColor = [UIColor yellowColor];
+            _indicatorLabel.text = @"Confused Face";
             break;
         default:
             _indicatorView.backgroundColor = [UIColor greenColor];
+            _indicatorLabel.text = @"Sad Face";
             break;
     }
 }

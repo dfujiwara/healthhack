@@ -41,13 +41,12 @@
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
-							<object class="IBUILabel" id="214037357">
+							<object class="IBUILabel" id="835121608">
 								<reference key="NSNextResponder" ref="888459461"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{320, 40}</string>
 								<reference key="NSSuperview" ref="888459461"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -82,7 +81,7 @@
 						<string key="NSFrameSize">{320, 499}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="214037357"/>
+						<reference key="NSNextKeyView" ref="835121608"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -94,10 +93,10 @@
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-						<float key="IBUIRowHeight">44</float>
+						<float key="IBUIRowHeight">50</float>
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
-						<reference key="IBUITableHeaderView" ref="214037357"/>
+						<reference key="IBUITableHeaderView" ref="835121608"/>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 499}}</string>
@@ -263,7 +262,7 @@
 						<int key="objectID">4</int>
 						<reference key="object" ref="888459461"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="214037357"/>
+							<reference ref="835121608"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -289,7 +288,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="214037357"/>
+						<reference key="object" ref="835121608"/>
 						<reference key="parent" ref="888459461"/>
 					</object>
 				</array>

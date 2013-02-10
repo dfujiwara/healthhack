@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *indicatorView;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UILabel *indicatorLabel;
 
 - (id)initWithItemDictionary:(NSDictionary *)itemDictionary;
 
