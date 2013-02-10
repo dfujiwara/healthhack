@@ -8,7 +8,7 @@
 
 #import "HealthZBarDelegate.h"
 #import "HealthFoodEssentialsStore.h"
-
+#import "HealthConstants.h"
 
 @implementation HealthZBarDelegate
 
@@ -26,7 +26,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     NSString *barcodeData = symbol.data;
     NSLog(@"the bar code data is %@", barcodeData);
-    [[HealthFoodEssentialsStore sharedStore] getLabel:barcodeData];
+
+    void (^completionHandler)(NSDictionary *productDict) = ^void(NSDictionary *productDict) {
+        NSDictionary *userInfo = @{kNotificationKeyProductDict: productDict,
+                                   kNotificationKeyViewControllerIndex: @(0)};
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationNameShowItem
+                                                            object:nil
+                                                          userInfo:userInfo];
+    };
+    [[HealthFoodEssentialsStore sharedStore] getLabel:barcodeData
+                                    completionHandler:completionHandler];
 }
 
 @end

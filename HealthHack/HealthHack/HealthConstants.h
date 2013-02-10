@@ -8,5 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+// Dictionary keys.
 extern NSString *kProductNameKey;
 extern NSString *kProductUPCKey;
+
+// Notification names.
+extern NSString *kNotificationNameShowItem;
+
+// Notification info keys
+extern NSString *kNotificationKeyProductDict;
+extern NSString *kNotificationKeyViewControllerIndex;

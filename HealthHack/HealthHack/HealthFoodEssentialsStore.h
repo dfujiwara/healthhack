@@ -19,6 +19,7 @@
 - (void)getProfile;
 - (void)setProfile:(NSDictionary *)profileData;
 
-- (void)getLabel:(NSString *)barcodeUPC;
+- (void)getLabel:(NSString *)barcodeUPC
+completionHandler:(void (^)(NSDictionary *productDict))completionHandler;
 
 @end

@@ -10,3 +10,8 @@
 
 NSString *kProductNameKey = @"product_name";
 NSString *kProductUPCKey = @"UPC";
+
+NSString *kNotificationNameShowItem = @"show_item";
+
+NSString *kNotificationKeyProductDict = @"product_dict";
+NSString *kNotificationKeyViewControllerIndex = @"viewcontroller_index";

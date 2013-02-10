@@ -123,7 +123,9 @@ static NSString *const kAppId = @"foodguard";
 }
 
 
-- (void)getLabel:(NSString *)barcodeUPC {
+- (void)getLabel:(NSString *)barcodeUPC
+completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
+    
     void (^getLabelHandler)(NSString *sessionId) = ^void(NSString *sessionId){
         NSString *queryParameterString =
         [NSString stringWithFormat:@"u=%@&sessid=%@&appid=%@&f=%@&api_key=%@",
@@ -152,6 +154,10 @@ static NSString *const kAppId = @"foodguard";
                         // Only add previously unscanned item.
                         [_scannedItems addObject:productDict];
                     }
+
+                    if (completionHandler) {
+                        completionHandler(productDict);
+                    }
                 } else {
                     NSLog(@"Failed to get the label: %@", error);
                 }
@@ -174,7 +180,7 @@ static NSString *const kAppId = @"foodguard";
 - (BOOL)hasScannedBefore:(NSDictionary *)scannedItemDict {
     BOOL hasScannedBefore = NO;
     for (NSDictionary *productDict in _scannedItems) {
-        if (productDict[kProductUPCKey] == scannedItemDict[kProductUPCKey]) {
+        if ([productDict[kProductUPCKey] isEqualToString:scannedItemDict[kProductUPCKey]]) {
             hasScannedBefore = YES;
             break;
         }

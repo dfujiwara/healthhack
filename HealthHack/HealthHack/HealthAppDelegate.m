@@ -11,13 +11,19 @@
 #import "ZBarSDK.h"
 
 #import "HealthItemListViewController.h"
+#import "HealthItemViewController.h"
+#import "HealthConstants.h"
 #import "HealthZBarDelegate.h"
+#import "HealthFoodEssentialsStore.h"
 
 @interface HealthAppDelegate () {
     HealthZBarDelegate *_zbarDelegate;
+    UITabBarController *_tabBarController;
 }
 
 - (ZBarReaderViewController *)setupBarReaderViewController;
+
+- (void)registerNotification;
 
 @end
 
@@ -25,6 +31,29 @@
 @implementation HealthAppDelegate
 
 #pragma mark - private methods
+
+- (void)registerNotification {
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:kNotificationNameShowItem
+     object:nil
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^void(NSNotification *notification) {
+
+         NSDictionary *productDict = notification.userInfo[kNotificationKeyProductDict];
+         NSInteger viewControllerIndex =
+            [notification.userInfo[kNotificationKeyViewControllerIndex] integerValue];
+
+         HealthItemViewController *itemViewController =
+            [[HealthItemViewController alloc] initWithItemDictionary:productDict];
+
+         UINavigationController *navController =
+            [[UINavigationController alloc] initWithRootViewController:itemViewController];
+
+         UIViewController *vc = _tabBarController.viewControllers[viewControllerIndex];
+         [vc presentViewController:navController animated:YES completion:nil];
+     }];
+}
+
 
 - (ZBarReaderViewController *)setupBarReaderViewController {
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
@@ -64,11 +93,13 @@
 
     ZBarReaderViewController *reader = [self setupBarReaderViewController];
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[reader, itemListViewController]];
+    _tabBarController = [[UITabBarController alloc] init];
+    [_tabBarController setViewControllers:@[reader, itemListViewController]];
 
-    [self.window setRootViewController:tabBarController];
+    [self.window setRootViewController:_tabBarController];
 
+    [self registerNotification];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
