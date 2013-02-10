@@ -45,6 +45,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:reuseableCellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
     NSDictionary *scannedItemDict =
