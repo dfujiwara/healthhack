@@ -178,10 +178,11 @@ static NSString *const kAppId = @"foodguard";
 - (void)getLabel:(NSString *)barcodeUPC
 completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
     
-    void (^getLabelHandler)(NSString *sessionId) = ^void(NSString *sessionId){
+    void (^getLabelHandler)(NSDictionary *profile) = ^void(NSDictionary *profile){
+        // At this point, we assume that the session id is valid.
         NSString *queryParameterString =
-        [NSString stringWithFormat:@"u=%@&sessid=%@&appid=%@&f=%@&api_key=%@",
-         barcodeUPC, sessionId, kAppId, @"json", kApiId];
+            [NSString stringWithFormat:@"u=%@&sessid=%@&appid=%@&f=%@&api_key=%@",
+             barcodeUPC, _sessionId, kAppId, @"json", kApiId];
 
         NSString *urlString = [NSString stringWithFormat:@"%@/label?%@",
                                kURLString, queryParameterString];
@@ -224,13 +225,26 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
         [connection start];
     };
 
-    if (_sessionId){
-        getLabelHandler(_sessionId);
+    if (_userProfile){
+        getLabelHandler(_userProfile);
     } else {
-        [self createSession:getLabelHandler];
+        [self getProfile:getLabelHandler];
     }
 }
 
+
+- (NSDictionary *)userAllergens {
+    if (!_userProfile) {
+        return nil;
+    }
+    NSMutableDictionary *userAllergensDict = [NSMutableDictionary dictionary];
+    NSMutableArray *userAllergens = _userProfile[kProductAllergens];
+
+    for (NSDictionary *userAllergen in userAllergens) {
+        userAllergensDict[userAllergen[kProductName]] = userAllergen[kProductValue];
+    }
+    return [userAllergensDict copy];
+}
 
 #pragma mark - private methods
 

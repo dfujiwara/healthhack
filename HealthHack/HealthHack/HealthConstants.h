@@ -14,6 +14,8 @@ extern NSString *kProductUPCKey;
 extern NSString *kProductAllergens;
 extern NSString *kProductAllergenName;
 extern NSString *kProductAllergenValue;
+extern NSString *kProductName;
+extern NSString *kProductValue;
 
 // Notification names.
 extern NSString *kNotificationNameShowItem;

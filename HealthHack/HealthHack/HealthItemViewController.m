@@ -43,8 +43,38 @@
     [super viewDidLoad];
     _indicatorView.backgroundColor = [UIColor greenColor];
 
+    NSDictionary *userAllergens = [[HealthFoodEssentialsStore sharedStore]
+                                   userAllergens];
+
+    NSMutableSet *allergentSet = [NSMutableSet set];
+    NSMutableSet *warningSet = [NSMutableSet set];
+    NSArray *allergentAlertArray = @[warningSet, allergentSet];
+
+    NSUInteger maxAllergentIndicator = 0;
     for (NSDictionary *allergenDict in _itemDictionary[kProductAllergens]) {
         NSLog(@"Allergen is %@", allergenDict[kProductAllergenName]);
+        NSString *allergentName = allergenDict[kProductAllergenName];
+        if ([userAllergens[allergentName] boolValue]) {
+            NSUInteger allergentValue = [allergenDict[kProductAllergenValue] unsignedIntegerValue];
+            maxAllergentIndicator = MAX(maxAllergentIndicator, allergentValue);
+
+            if (allergentValue > 0) {
+                NSMutableSet *set = allergentAlertArray[allergentValue - 1];
+                [set addObject:allergentName];
+            }
+        }
+    }
+
+    switch(maxAllergentIndicator) {
+        case 2:
+            _indicatorView.backgroundColor = [UIColor redColor];
+            break;
+        case 1:
+            _indicatorView.backgroundColor = [UIColor yellowColor];
+            break;
+        default:
+            _indicatorView.backgroundColor = [UIColor greenColor];
+            break;
     }
 }
 

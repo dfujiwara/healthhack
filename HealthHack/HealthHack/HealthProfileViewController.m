@@ -71,7 +71,7 @@ static NSString *reuseableCellIdentifier = @"HealthProfileView";
     UICollectionViewCell *cell =
         [_collectionView dequeueReusableCellWithReuseIdentifier:reuseableCellIdentifier
                                                    forIndexPath:indexPath];
-    if ([profileAllergenDict[kProductAllergenValue] boolValue]) {
+    if ([profileAllergenDict[kProductValue] boolValue]) {
         cell.backgroundColor = [UIColor redColor];
     } else {
         cell.backgroundColor = [UIColor grayColor];
@@ -96,9 +96,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *profileAllergens = profile[kProductAllergens];
     
     NSMutableDictionary *profileAllergenDict = profileAllergens[indexPath.row];
-    BOOL currentValue = [profileAllergenDict[kProductAllergenValue] boolValue];
+    BOOL currentValue = [profileAllergenDict[kProductValue] boolValue];
 
-    profileAllergenDict[kProductAllergenValue] = @(!currentValue);
+    profileAllergenDict[kProductValue] = @(!currentValue);
     
     [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }

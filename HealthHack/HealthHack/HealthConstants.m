@@ -12,7 +12,9 @@ NSString *kProductNameKey = @"product_name";
 NSString *kProductUPCKey = @"upc";
 NSString *kProductAllergens = @"allergens";
 NSString *kProductAllergenName = @"allergen_name";
-NSString *kProductAllergenValue = @"value";
+NSString *kProductAllergenValue = @"allergen_value";
+NSString *kProductName = @"name";
+NSString *kProductValue = @"value";
 
 NSString *kNotificationNameShowItem = @"show_item";
 

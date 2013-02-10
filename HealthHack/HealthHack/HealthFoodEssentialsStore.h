@@ -24,4 +24,6 @@
 - (void)getLabel:(NSString *)barcodeUPC
 completionHandler:(void (^)(NSDictionary *productDict))completionHandler;
 
+- (NSDictionary *)userAllergens;
+
 @end
