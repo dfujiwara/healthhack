@@ -203,6 +203,19 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
                                          NSError *error) =
             ^void(NSDictionary *jsonResponse, NSError *error){
                 if (!error) {
+                    if ([jsonResponse count] == 0) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            UIAlertView *alertView = [[UIAlertView alloc]
+                                                      initWithTitle:@"No item"
+                                                      message:@"Didn't find the item"
+                                                      delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                            [alertView show];
+                        });
+                        return;
+                    }
+
                     NSLog(@"Label is %@", jsonResponse);
                     NSString *productName = jsonResponse[kProductNameKey];
                     NSArray *productAllergens = jsonResponse[kProductAllergens];
