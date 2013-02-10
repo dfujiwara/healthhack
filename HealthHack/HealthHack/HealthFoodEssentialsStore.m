@@ -9,6 +9,9 @@
 #import "HealthFoodEssentialsStore.h"
 #import "HealthConnection.h"
 
+NSString *kProductNameKey = @"product_name";
+NSString *kProductUPCKey = @"UPC";
+
 static NSString *const kApiId = @"79dgsyxjstnnbvgrsdqhsa8r";
 static NSString *const kURLString = @"http://api.foodessentials.com";
 static NSString *const kAppId = @"foodguard";
@@ -17,6 +20,8 @@ static NSString *const kAppId = @"foodguard";
     NSString *_sessionId;
     NSDictionary *_profile;
 }
+
+- (BOOL)hasScannedBefore:(NSDictionary *)scannedItemDict;
 
 @end
 
@@ -28,6 +33,7 @@ static NSString *const kAppId = @"foodguard";
     if (!foodEssentialsStore){
         // set up the singleton instance
         foodEssentialsStore = [[HealthFoodEssentialsStore alloc] init];
+        foodEssentialsStore.scannedItems = [NSMutableArray array];
     }
     return foodEssentialsStore;
 }
@@ -139,7 +145,18 @@ static NSString *const kAppId = @"foodguard";
         void (^requestCompletionHandler)(NSDictionary *jsonResponse,
                                          NSError *error) =
             ^void(NSDictionary *jsonResponse, NSError *error){
-                NSLog(@"Label is %@", jsonResponse);
+                if (!error) {
+                    NSLog(@"Label is %@", jsonResponse);
+                    NSString *productName = jsonResponse[@"product_name"];
+                    NSDictionary *productDict = @{kProductNameKey: productName,
+                                                  kProductUPCKey: barcodeUPC};
+                    if (![self hasScannedBefore:productDict]) {
+                        // Only add previously unscanned item.
+                        [_scannedItems addObject:productDict];
+                    }
+                } else {
+                    NSLog(@"Failed to get the label: %@", error);
+                }
             };
 
         connection.completionBlock = requestCompletionHandler;
@@ -152,5 +169,20 @@ static NSString *const kAppId = @"foodguard";
         [self createSession:getLabelHandler];
     }
 }
+
+
+#pragma mark - private methods
+
+- (BOOL)hasScannedBefore:(NSDictionary *)scannedItemDict {
+    BOOL hasScannedBefore = NO;
+    for (NSDictionary *productDict in _scannedItems) {
+        if (productDict[kProductUPCKey] == scannedItemDict[kProductUPCKey]) {
+            hasScannedBefore = YES;
+            break;
+        }
+    }
+    return hasScannedBefore;
+}
+
 
 @end

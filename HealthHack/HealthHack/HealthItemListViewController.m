@@ -7,13 +7,7 @@
 //
 
 #import "HealthItemListViewController.h"
-
-@interface HealthItemListViewController () {
-    NSMutableArray *_scannedItems;
-}
-
-@end
-
+#import "HealthFoodEssentialsStore.h"
 
 @implementation HealthItemListViewController
 
@@ -21,14 +15,16 @@
                bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _scannedItems = [NSMutableArray array];
+        self.tabBarItem.title = @"List";
     }
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [_scannedItemListView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,14 +45,16 @@
                                       reuseIdentifier:reuseableCellIdentifier];
     }
 
-    cell.textLabel.text = @"item";
+    NSDictionary *scannedItemDict =
+        [HealthFoodEssentialsStore sharedStore].scannedItems[indexPath.row];
+    cell.textLabel.text = scannedItemDict[kProductNameKey];
     return cell;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [_scannedItems count];
+    return [[HealthFoodEssentialsStore sharedStore].scannedItems count];
 }
 
 

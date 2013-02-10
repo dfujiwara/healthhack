@@ -44,6 +44,9 @@
     [scanner setSymbology:ZBAR_UPCA
                    config:ZBAR_CFG_ENABLE
                        to:1];
+
+    reader.showsZBarControls = NO;
+    reader.tabBarItem.title = @"Scan";
     return reader;
 }
 
