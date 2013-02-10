@@ -128,9 +128,13 @@ static NSString *const kAppId = @"foodguard";
 
 - (void)setProfile:(void (^)())completionHandler {
     void (^setProfileHandler)(NSString *sessionId) = ^void(NSString *sessionId){
+        if (!_userProfile) {
+            NSLog(@"User profile is not set");
+            return;
+        }
         NSString *queryParameterString =
-        [NSString stringWithFormat:@"sid=%@&f=%@&api_key=%@",
-         _sessionId, @"json", kApiId];
+            [NSString stringWithFormat:@"sid=%@&f=%@&api_key=%@",
+             _sessionId, @"json", kApiId];
 
         NSString *urlString = [NSString stringWithFormat:@"%@/setprofile?%@",
                                kURLString, queryParameterString];

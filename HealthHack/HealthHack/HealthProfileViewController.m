@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBarItem.title = @"Allergens";
+        self.tabBarItem.image = [UIImage imageNamed:@"icon-allergies"];
     }
     return self;
 }

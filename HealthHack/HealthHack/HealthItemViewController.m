@@ -84,7 +84,7 @@
             break;
         default:
             _indicatorView.backgroundColor = [UIColor greenColor];
-            _indicatorLabel.text = @"Sad Face";
+            _indicatorLabel.text = @"Happy Face";
             break;
     }
 }

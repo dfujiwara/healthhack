@@ -77,6 +77,7 @@
 
     reader.showsZBarControls = NO;
     reader.tabBarItem.title = @"Scan";
+    reader.tabBarItem.image = [UIImage imageNamed:@"icon-scan"];
     return reader;
 }
 

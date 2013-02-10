@@ -18,6 +18,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBarItem.title = @"List";
+        self.tabBarItem.image = [UIImage imageNamed:@"icon-list"];
     }
     return self;
 }

@@ -38,6 +38,11 @@
 		6AC1518716C76E9800EF64C2 /* HealthProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC1518516C76E9800EF64C2 /* HealthProfileViewController.xib */; };
 		6AE824BA16C79A580031DF63 /* HealthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE824B916C79A580031DF63 /* HealthCollectionViewCell.m */; };
 		6AE824C016C79AAA0031DF63 /* HealthCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824BF16C79AAA0031DF63 /* HealthCollectionViewCell.xib */; };
+		6AE824C516C835550031DF63 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824C416C835550031DF63 /* Icon@2x.png */; };
+		6AE824C716C836250031DF63 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824C616C836250031DF63 /* Default-568h@2x.png */; };
+		6AE824CB16C838B50031DF63 /* icon-scan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824CA16C838B50031DF63 /* icon-scan@2x.png */; };
+		6AE824CE16C83AB70031DF63 /* icon-allergies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824CC16C83AB70031DF63 /* icon-allergies@2x.png */; };
+		6AE824CF16C83AB70031DF63 /* icon-list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824CD16C83AB70031DF63 /* icon-list@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +109,11 @@
 		6AE824B816C79A580031DF63 /* HealthCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCollectionViewCell.h; sourceTree = "<group>"; };
 		6AE824B916C79A580031DF63 /* HealthCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCollectionViewCell.m; sourceTree = "<group>"; };
 		6AE824BF16C79AAA0031DF63 /* HealthCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthCollectionViewCell.xib; sourceTree = "<group>"; };
+		6AE824C416C835550031DF63 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		6AE824C616C836250031DF63 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "assets/Default-568h@2x.png"; sourceTree = "<group>"; };
+		6AE824CA16C838B50031DF63 /* icon-scan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-scan@2x.png"; path = "assets/icon-scan@2x.png"; sourceTree = "<group>"; };
+		6AE824CC16C83AB70031DF63 /* icon-allergies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-allergies@2x.png"; path = "assets/icon-allergies@2x.png"; sourceTree = "<group>"; };
+		6AE824CD16C83AB70031DF63 /* icon-list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-list@2x.png"; path = "assets/icon-list@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +172,7 @@
 		6AC1511A16C6EE2500EF64C2 /* HealthHack */ = {
 			isa = PBXGroup;
 			children = (
+				6AE824C116C834EF0031DF63 /* Assets */,
 				6AE824B516C799D50031DF63 /* Views */,
 				6AC1517716C72EFF00EF64C2 /* Stores */,
 				6AC1517316C72C1800EF64C2 /* Utils */,
@@ -307,6 +318,18 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		6AE824C116C834EF0031DF63 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				6AE824CC16C83AB70031DF63 /* icon-allergies@2x.png */,
+				6AE824CD16C83AB70031DF63 /* icon-list@2x.png */,
+				6AE824CA16C838B50031DF63 /* icon-scan@2x.png */,
+				6AE824C616C836250031DF63 /* Default-568h@2x.png */,
+				6AE824C416C835550031DF63 /* Icon@2x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,6 +394,11 @@
 				6AC1517F16C75CC700EF64C2 /* HealthItemViewController.xib in Resources */,
 				6AC1518716C76E9800EF64C2 /* HealthProfileViewController.xib in Resources */,
 				6AE824C016C79AAA0031DF63 /* HealthCollectionViewCell.xib in Resources */,
+				6AE824C516C835550031DF63 /* Icon@2x.png in Resources */,
+				6AE824C716C836250031DF63 /* Default-568h@2x.png in Resources */,
+				6AE824CB16C838B50031DF63 /* icon-scan@2x.png in Resources */,
+				6AE824CE16C83AB70031DF63 /* icon-allergies@2x.png in Resources */,
+				6AE824CF16C83AB70031DF63 /* icon-list@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
