@@ -7,22 +7,10 @@
 //
 
 #import "HealthZBarDelegate.h"
+#import "HealthFoodEssentialsStore.h"
 
-@interface HealthZBarDelegate () {
-    void (^_handler)(NSString *barcodeData);
-}
-
-@end
 
 @implementation HealthZBarDelegate
-
--(id)initWithCompletionHandler:(void (^)(NSString *))handler {
-    self = [super init];
-    if (self) {
-        _handler = handler;
-    }
-    return self;
-}
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker
@@ -38,9 +26,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     NSString *barcodeData = symbol.data;
     NSLog(@"the bar code data is %@", barcodeData);
-    if (_handler) {
-        _handler(barcodeData);
-    }
+    [[HealthFoodEssentialsStore sharedStore] getLabel:barcodeData];
 }
 
 @end

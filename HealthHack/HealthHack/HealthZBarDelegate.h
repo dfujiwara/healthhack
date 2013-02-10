@@ -11,6 +11,4 @@
 
 @interface HealthZBarDelegate : NSObject <ZBarReaderDelegate>
 
-- (id)initWithCompletionHandler:(void (^)(NSString *barcodeData))handler;
-
 @end

@@ -30,8 +30,7 @@
     ZBarReaderViewController *reader = [ZBarReaderViewController new];
 
     reader.supportedOrientationsMask = ZBarOrientationMaskAll;
-    _zbarDelegate = [[HealthZBarDelegate alloc]
-                     initWithCompletionHandler:nil];
+    _zbarDelegate = [[HealthZBarDelegate alloc] init];
     reader.readerDelegate = _zbarDelegate;
     
     ZBarImageScanner *scanner = reader.scanner;
@@ -41,6 +40,10 @@
     [scanner setSymbology: ZBAR_I25
                    config: ZBAR_CFG_ENABLE
                        to: 0];
+
+    [scanner setSymbology:ZBAR_UPCA
+                   config:ZBAR_CFG_ENABLE
+                       to:1];
     return reader;
 }
 
