@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *kProductNameKey;
-extern NSString *kProductUPCKey;
-
 @interface HealthFoodEssentialsStore : NSObject
 
 @property (strong, nonatomic) NSMutableArray *scannedItems;

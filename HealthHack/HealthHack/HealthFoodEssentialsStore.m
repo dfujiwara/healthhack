@@ -8,9 +8,7 @@
 
 #import "HealthFoodEssentialsStore.h"
 #import "HealthConnection.h"
-
-NSString *kProductNameKey = @"product_name";
-NSString *kProductUPCKey = @"UPC";
+#import "HealthConstants.h"
 
 static NSString *const kApiId = @"79dgsyxjstnnbvgrsdqhsa8r";
 static NSString *const kURLString = @"http://api.foodessentials.com";

@@ -31,6 +31,9 @@
 		6AC1517216C723F400EF64C2 /* HealthZBarDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1517116C723F400EF64C2 /* HealthZBarDelegate.m */; };
 		6AC1517616C72C4100EF64C2 /* HealthConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1517516C72C4100EF64C2 /* HealthConnection.m */; };
 		6AC1517A16C72F2900EF64C2 /* HealthFoodEssentialsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1517916C72F2900EF64C2 /* HealthFoodEssentialsStore.m */; };
+		6AC1517E16C75CC700EF64C2 /* HealthItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1517C16C75CC700EF64C2 /* HealthItemViewController.m */; };
+		6AC1517F16C75CC700EF64C2 /* HealthItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC1517D16C75CC700EF64C2 /* HealthItemViewController.xib */; };
+		6AC1518216C75F2F00EF64C2 /* HealthConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1518116C75F2F00EF64C2 /* HealthConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +89,11 @@
 		6AC1517516C72C4100EF64C2 /* HealthConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthConnection.m; sourceTree = "<group>"; };
 		6AC1517816C72F2900EF64C2 /* HealthFoodEssentialsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthFoodEssentialsStore.h; sourceTree = "<group>"; };
 		6AC1517916C72F2900EF64C2 /* HealthFoodEssentialsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthFoodEssentialsStore.m; sourceTree = "<group>"; };
+		6AC1517B16C75CC700EF64C2 /* HealthItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthItemViewController.h; sourceTree = "<group>"; };
+		6AC1517C16C75CC700EF64C2 /* HealthItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthItemViewController.m; sourceTree = "<group>"; };
+		6AC1517D16C75CC700EF64C2 /* HealthItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthItemViewController.xib; sourceTree = "<group>"; };
+		6AC1518016C75F2F00EF64C2 /* HealthConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthConstants.h; sourceTree = "<group>"; };
+		6AC1518116C75F2F00EF64C2 /* HealthConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +155,6 @@
 				6AC1517716C72EFF00EF64C2 /* Stores */,
 				6AC1517316C72C1800EF64C2 /* Utils */,
 				6AC1516416C716DD00EF64C2 /* Controllers */,
-				6AC1512316C6EE2500EF64C2 /* HealthAppDelegate.h */,
-				6AC1512416C6EE2500EF64C2 /* HealthAppDelegate.m */,
 				6AC1516F16C723C100EF64C2 /* Delegate */,
 				6AC1511B16C6EE2500EF64C2 /* Supporting Files */,
 			);
@@ -165,6 +171,8 @@
 				6AC1512616C6EE2500EF64C2 /* Default.png */,
 				6AC1512816C6EE2500EF64C2 /* Default@2x.png */,
 				6AC1512A16C6EE2500EF64C2 /* Default-568h@2x.png */,
+				6AC1518016C75F2F00EF64C2 /* HealthConstants.h */,
+				6AC1518116C75F2F00EF64C2 /* HealthConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,6 +247,9 @@
 				6AC1516A16C7183200EF64C2 /* HealthItemListViewController.h */,
 				6AC1516B16C7183200EF64C2 /* HealthItemListViewController.m */,
 				6AC1516C16C7183200EF64C2 /* HealthItemListViewController.xib */,
+				6AC1517B16C75CC700EF64C2 /* HealthItemViewController.h */,
+				6AC1517C16C75CC700EF64C2 /* HealthItemViewController.m */,
+				6AC1517D16C75CC700EF64C2 /* HealthItemViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -246,6 +257,8 @@
 		6AC1516F16C723C100EF64C2 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				6AC1512316C6EE2500EF64C2 /* HealthAppDelegate.h */,
+				6AC1512416C6EE2500EF64C2 /* HealthAppDelegate.m */,
 				6AC1517016C723F400EF64C2 /* HealthZBarDelegate.h */,
 				6AC1517116C723F400EF64C2 /* HealthZBarDelegate.m */,
 			);
@@ -331,6 +344,7 @@
 				6AC1515216C6EF5D00EF64C2 /* zbar-helpicons.png in Resources */,
 				6AC1515316C6EF5D00EF64C2 /* zbar-samples.png in Resources */,
 				6AC1516E16C7183200EF64C2 /* HealthItemListViewController.xib in Resources */,
+				6AC1517F16C75CC700EF64C2 /* HealthItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +361,8 @@
 				6AC1517216C723F400EF64C2 /* HealthZBarDelegate.m in Sources */,
 				6AC1517616C72C4100EF64C2 /* HealthConnection.m in Sources */,
 				6AC1517A16C72F2900EF64C2 /* HealthFoodEssentialsStore.m in Sources */,
+				6AC1517E16C75CC700EF64C2 /* HealthItemViewController.m in Sources */,
+				6AC1518216C75F2F00EF64C2 /* HealthConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

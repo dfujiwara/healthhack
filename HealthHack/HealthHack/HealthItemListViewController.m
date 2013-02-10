@@ -8,6 +8,8 @@
 
 #import "HealthItemListViewController.h"
 #import "HealthFoodEssentialsStore.h"
+#import "HealthItemViewController.h"
+#import "HealthConstants.h"
 
 @implementation HealthItemListViewController
 
@@ -21,11 +23,11 @@
 }
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [_scannedItemListView reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -62,8 +64,14 @@
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //TODO: open up the detail view.
+    NSDictionary *scannedItemDict =
+        [HealthFoodEssentialsStore sharedStore].scannedItems[indexPath.row];
+    HealthItemViewController *itemViewController =
+        [[HealthItemViewController alloc] initWithItemDictionary:scannedItemDict];
 
+    UINavigationController *navController =
+        [[UINavigationController alloc] initWithRootViewController:itemViewController];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 @end
