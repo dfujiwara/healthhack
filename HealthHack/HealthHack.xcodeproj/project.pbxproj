@@ -36,6 +36,8 @@
 		6AC1518216C75F2F00EF64C2 /* HealthConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1518116C75F2F00EF64C2 /* HealthConstants.m */; };
 		6AC1518616C76E9800EF64C2 /* HealthProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1518416C76E9800EF64C2 /* HealthProfileViewController.m */; };
 		6AC1518716C76E9800EF64C2 /* HealthProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC1518516C76E9800EF64C2 /* HealthProfileViewController.xib */; };
+		6AE824BA16C79A580031DF63 /* HealthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE824B916C79A580031DF63 /* HealthCollectionViewCell.m */; };
+		6AE824C016C79AAA0031DF63 /* HealthCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824BF16C79AAA0031DF63 /* HealthCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,9 @@
 		6AC1518316C76E9800EF64C2 /* HealthProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthProfileViewController.h; sourceTree = "<group>"; };
 		6AC1518416C76E9800EF64C2 /* HealthProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthProfileViewController.m; sourceTree = "<group>"; };
 		6AC1518516C76E9800EF64C2 /* HealthProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthProfileViewController.xib; sourceTree = "<group>"; };
+		6AE824B816C79A580031DF63 /* HealthCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCollectionViewCell.h; sourceTree = "<group>"; };
+		6AE824B916C79A580031DF63 /* HealthCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCollectionViewCell.m; sourceTree = "<group>"; };
+		6AE824BF16C79AAA0031DF63 /* HealthCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +162,7 @@
 		6AC1511A16C6EE2500EF64C2 /* HealthHack */ = {
 			isa = PBXGroup;
 			children = (
+				6AE824B516C799D50031DF63 /* Views */,
 				6AC1517716C72EFF00EF64C2 /* Stores */,
 				6AC1517316C72C1800EF64C2 /* Utils */,
 				6AC1516416C716DD00EF64C2 /* Controllers */,
@@ -291,6 +297,16 @@
 			name = Stores;
 			sourceTree = "<group>";
 		};
+		6AE824B516C799D50031DF63 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6AE824B816C79A580031DF63 /* HealthCollectionViewCell.h */,
+				6AE824B916C79A580031DF63 /* HealthCollectionViewCell.m */,
+				6AE824BF16C79AAA0031DF63 /* HealthCollectionViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +370,7 @@
 				6AC1516E16C7183200EF64C2 /* HealthItemListViewController.xib in Resources */,
 				6AC1517F16C75CC700EF64C2 /* HealthItemViewController.xib in Resources */,
 				6AC1518716C76E9800EF64C2 /* HealthProfileViewController.xib in Resources */,
+				6AE824C016C79AAA0031DF63 /* HealthCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +390,7 @@
 				6AC1517E16C75CC700EF64C2 /* HealthItemViewController.m in Sources */,
 				6AC1518216C75F2F00EF64C2 /* HealthConstants.m in Sources */,
 				6AC1518616C76E9800EF64C2 /* HealthProfileViewController.m in Sources */,
+				6AE824BA16C79A580031DF63 /* HealthCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +513,7 @@
 				6AC1513016C6EE2500EF64C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

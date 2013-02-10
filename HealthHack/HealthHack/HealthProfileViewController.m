@@ -9,8 +9,8 @@
 #import "HealthProfileViewController.h"
 #import "HealthFoodEssentialsStore.h"
 #import "HealthConstants.h"
+#import "HealthCollectionViewCell.h"
 
-static NSString *reuseableCellIdentifier = @"HealthProfileView";
 
 @implementation HealthProfileViewController
 
@@ -28,8 +28,10 @@ static NSString *reuseableCellIdentifier = @"HealthProfileView";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    [_collectionView registerClass:[UICollectionViewCell class]
-        forCellWithReuseIdentifier:reuseableCellIdentifier];
+    UINib *nib = [UINib nibWithNibName:kHealthCollectionViewCellNibName
+                                bundle:nil];
+    [_collectionView registerNib:nib
+      forCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier];
     
     void (^completionHandler)(NSDictionary *profile) = ^void(NSDictionary *profile) {
         NSLog(@"Profile is %@", profile);
@@ -68,14 +70,16 @@ static NSString *reuseableCellIdentifier = @"HealthProfileView";
     NSDictionary *profile = [HealthFoodEssentialsStore sharedStore].userProfile;
     NSDictionary *profileAllergenDict = profile[kProductAllergens][indexPath.row];
 
-    UICollectionViewCell *cell =
-        [_collectionView dequeueReusableCellWithReuseIdentifier:reuseableCellIdentifier
+    HealthCollectionViewCell *cell =
+        [_collectionView dequeueReusableCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier
                                                    forIndexPath:indexPath];
     if ([profileAllergenDict[kProductValue] boolValue]) {
         cell.backgroundColor = [UIColor redColor];
     } else {
         cell.backgroundColor = [UIColor grayColor];
-    }
+    }   
+    cell.allergenLabel.text = profileAllergenDict[kProductName];
+    
     return cell;
 }
 
