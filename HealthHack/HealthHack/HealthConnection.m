@@ -73,7 +73,7 @@ static NSMutableArray *sharedConnectionList = nil;
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // By default we expect JSON response
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:_container
-                                                             options:0
+                                                             options:NSJSONReadingMutableContainers
                                                                error:nil];
     NSInteger statusCode = ((NSHTTPURLResponse *)_response).statusCode;
     NSError *error = nil;

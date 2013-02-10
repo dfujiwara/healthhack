@@ -15,6 +15,7 @@
 #import "HealthConstants.h"
 #import "HealthZBarDelegate.h"
 #import "HealthFoodEssentialsStore.h"
+#import "HealthProfileViewController.h"
 
 @interface HealthAppDelegate () {
     HealthZBarDelegate *_zbarDelegate;
@@ -88,13 +89,18 @@
                    initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
+    ZBarReaderViewController *reader = [self setupBarReaderViewController];
+
     HealthItemListViewController *itemListViewController =
         [[HealthItemListViewController alloc] initWithNibName:nil bundle:nil];
 
-    ZBarReaderViewController *reader = [self setupBarReaderViewController];
+    HealthProfileViewController *profileViewController =
+        [[HealthProfileViewController alloc] initWithNibName:nil bundle:nil];
     
     _tabBarController = [[UITabBarController alloc] init];
-    [_tabBarController setViewControllers:@[reader, itemListViewController]];
+    [_tabBarController setViewControllers:@[reader,
+                                            itemListViewController,
+                                            profileViewController]];
 
     [self.window setRootViewController:_tabBarController];
 

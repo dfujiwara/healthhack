@@ -16,7 +16,6 @@ static NSString *const kAppId = @"foodguard";
 
 @interface HealthFoodEssentialsStore () {
     NSString *_sessionId;
-    NSDictionary *_profile;
 }
 
 - (BOOL)hasScannedBefore:(NSDictionary *)scannedItemDict;
@@ -63,7 +62,9 @@ static NSString *const kAppId = @"foodguard";
                 if (jsonResponse[@"session_id"]) {
                     _sessionId = jsonResponse[@"session_id"];
                     if (completionHandler) {
-                        completionHandler(_sessionId);
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionHandler(_sessionId);
+                        });
                     }
                 } else {
                     NSLog(@"Creating session didn't return session id: %@", error);
@@ -78,48 +79,99 @@ static NSString *const kAppId = @"foodguard";
 }
 
 
-- (void)getProfile {
-    NSString *queryParameterString =
-        [NSString stringWithFormat:@"sid=%@&f=%@", _sessionId, @"json"];
+- (void)getProfile:(void (^)(NSDictionary *profileDict))completionHandler {
 
-    NSString *urlString = [NSString stringWithFormat:@"%@/?%@",
-                           kURLString, queryParameterString];
+    void (^getProfileHandler)(NSString *sessionId) = ^void(NSString *sessionId){
+        NSString *queryParameterString =
+        [NSString stringWithFormat:@"sid=%@&f=%@&api_key=%@",
+         sessionId, @"json", kApiId];
 
-    NSLog(@"getProfile - %@", urlString);
+        NSString *urlString = [NSString stringWithFormat:@"%@/getprofile?%@",
+                               kURLString, queryParameterString];
 
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        NSLog(@"getProfile - %@", urlString);
 
-    HealthConnection *connection = [[HealthConnection alloc]
-                                    initWithRequest:request];
-    connection.completionBlock = nil;
-    [connection start];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+
+        HealthConnection *connection = [[HealthConnection alloc]
+                                        initWithRequest:request];
+
+
+        void (^requestCompletionHandler)(NSMutableDictionary *jsonResponse,
+                                         NSError *error) =
+            ^void(NSMutableDictionary *jsonResponse, NSError *error){
+                if (!error) {
+                    NSLog(@"Profile is %@", jsonResponse);
+                    _userProfile = jsonResponse;
+                    if (completionHandler) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionHandler(_userProfile);
+                        });
+                    }
+                } else {
+                    NSLog(@"Failed to get the profile: %@", error);
+                }
+            };
+        
+        connection.completionBlock = requestCompletionHandler;
+        [connection start];
+    };
+
+    if (_sessionId){
+        getProfileHandler(_sessionId);
+    } else {
+        [self createSession:getProfileHandler];
+    }
 }
 
 
-- (void)setProfile:(NSDictionary *)profileData {
-    NSString *queryParameterString =
-    [NSString stringWithFormat:@"sid=%@&f=%@", _sessionId, @"json"];
+- (void)setProfile:(void (^)())completionHandler {
+    void (^setProfileHandler)(NSString *sessionId) = ^void(NSString *sessionId){
+        NSString *queryParameterString =
+        [NSString stringWithFormat:@"sid=%@&f=%@&api_key=%@",
+         _sessionId, @"json", kApiId];
 
-    NSString *urlString = [NSString stringWithFormat:@"%@/?%@",
-                           kURLString, queryParameterString];
+        NSString *urlString = [NSString stringWithFormat:@"%@/setprofile?%@",
+                               kURLString, queryParameterString];
 
-    
-    NSLog(@"setProfile - %@", urlString);
 
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:profileData
-                                                       options:0
-                                                         error:nil];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+        NSLog(@"setProfile - %@", urlString);
 
-    HealthConnection *connection = [[HealthConnection alloc]
-                                    initWithRequest:request];
-    connection.completionBlock = nil;
-    [connection start];
+        NSURL *url = [NSURL URLWithString:urlString];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        NSData *postData = [NSJSONSerialization dataWithJSONObject:_userProfile
+                                                           options:0
+                                                             error:nil];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:postData];
+        [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+
+        HealthConnection *connection = [[HealthConnection alloc]
+                                        initWithRequest:request];
+
+        void (^requestCompletionHandler)(NSMutableDictionary *jsonResponse,
+                                         NSError *error) =
+            ^void(NSMutableDictionary *jsonResponse, NSError *error){
+            if (!error) {
+                if (completionHandler) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completionHandler();
+                    });
+                }
+            } else {
+                NSLog(@"Failed to set the profile: %@", error);
+            }
+        };
+        connection.completionBlock = requestCompletionHandler;
+        [connection start];
+    };
+
+    if (_sessionId){
+        setProfileHandler(_sessionId);
+    } else {
+        [self createSession:setProfileHandler];
+    }
 }
 
 
@@ -129,7 +181,7 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
     void (^getLabelHandler)(NSString *sessionId) = ^void(NSString *sessionId){
         NSString *queryParameterString =
         [NSString stringWithFormat:@"u=%@&sessid=%@&appid=%@&f=%@&api_key=%@",
-         barcodeUPC, _sessionId, kAppId, @"json", kApiId];
+         barcodeUPC, sessionId, kAppId, @"json", kApiId];
 
         NSString *urlString = [NSString stringWithFormat:@"%@/label?%@",
                                kURLString, queryParameterString];
@@ -159,7 +211,9 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
                     }
 
                     if (completionHandler) {
-                        completionHandler(productDict);
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionHandler(productDict);
+                        });
                     }
                 } else {
                     NSLog(@"Failed to get the label: %@", error);

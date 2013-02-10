@@ -11,13 +11,15 @@
 @interface HealthFoodEssentialsStore : NSObject
 
 @property (strong, nonatomic) NSMutableArray *scannedItems;
+@property (strong, nonatomic) NSMutableDictionary *userProfile;
 
 + (HealthFoodEssentialsStore *)sharedStore;
 
 - (void)createSession:(void (^)(NSString *sessiondId))completionHandler;
 
-- (void)getProfile;
-- (void)setProfile:(NSDictionary *)profileData;
+- (void)getProfile:(void (^)(NSDictionary *profileDict))completionHandler;
+
+- (void)setProfile:(void (^)())completionHandler;
 
 - (void)getLabel:(NSString *)barcodeUPC
 completionHandler:(void (^)(NSDictionary *productDict))completionHandler;
