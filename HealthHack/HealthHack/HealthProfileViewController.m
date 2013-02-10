@@ -92,6 +92,7 @@
     return CGSizeMake(100, 80);
 }
 
+
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary *profile =

@@ -9,9 +9,13 @@
 #import "HealthItemViewController.h"
 #import "HealthConstants.h"
 #import "HealthFoodEssentialsStore.h"
+#import "HealthCollectionViewCell.h"
 
 @interface HealthItemViewController () {
     NSDictionary *_itemDictionary;
+    NSMutableArray *_allergenArray;
+    NSMutableArray *_warningArray;
+    NSArray *_allergenAlertArray;
 }
 
 - (void)dismiss:(id)sender;
@@ -41,14 +45,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _indicatorView.backgroundColor = [UIColor greenColor];
 
+    UINib *nib = [UINib nibWithNibName:kHealthCollectionViewCellNibName
+                                bundle:nil];
+    [_collectionView registerNib:nib
+      forCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier];
+    
     NSDictionary *userAllergens = [[HealthFoodEssentialsStore sharedStore]
                                    userAllergens];
 
-    NSMutableSet *allergentSet = [NSMutableSet set];
-    NSMutableSet *warningSet = [NSMutableSet set];
-    NSArray *allergentAlertArray = @[warningSet, allergentSet];
+    _allergenArray = [NSMutableArray array];
+    _warningArray = [NSMutableArray array];
+    _allergenAlertArray = @[_warningArray, _allergenArray];
 
     NSUInteger maxAllergentIndicator = 0;
     for (NSDictionary *allergenDict in _itemDictionary[kProductAllergens]) {
@@ -59,7 +67,7 @@
             maxAllergentIndicator = MAX(maxAllergentIndicator, allergentValue);
 
             if (allergentValue > 0) {
-                NSMutableSet *set = allergentAlertArray[allergentValue - 1];
+                NSMutableSet *set = _allergenAlertArray[allergentValue - 1];
                 [set addObject:allergentName];
             }
         }
@@ -88,6 +96,57 @@
 
 - (void)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - collection view data source
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section {
+    NSInteger count = 0;
+    if (section == 0) {
+        count = [_allergenArray count];
+    } else {
+        count = [_warningArray count];
+    }
+    return count;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    UIColor *backgroundColor = nil;
+    NSString *allergenName = nil;
+    if (indexPath.section == 0) {
+        allergenName = _allergenArray[indexPath.row];
+        backgroundColor = [UIColor redColor];
+    } else {
+        allergenName = _warningArray[indexPath.row];
+        backgroundColor = [UIColor yellowColor];
+    }
+
+    HealthCollectionViewCell *cell =
+    [_collectionView dequeueReusableCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier
+                                               forIndexPath:indexPath];
+    cell.backgroundColor = backgroundColor;
+    cell.allergenLabel.text = allergenName;
+
+    return cell;
+}
+
+
+#pragma mark - collection flow layout delegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(100, 80);
 }
 
 @end
