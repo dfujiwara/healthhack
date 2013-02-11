@@ -14,5 +14,6 @@ extern NSString *kHealthCollectionViewCellNibName;
 @interface HealthCollectionViewCell : UICollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *allergenLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *allergenImage;
 
 @end

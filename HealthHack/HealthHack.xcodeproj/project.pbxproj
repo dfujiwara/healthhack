@@ -43,6 +43,30 @@
 		6AE824CB16C838B50031DF63 /* icon-scan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824CA16C838B50031DF63 /* icon-scan@2x.png */; };
 		6AE824CE16C83AB70031DF63 /* icon-allergies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824CC16C83AB70031DF63 /* icon-allergies@2x.png */; };
 		6AE824CF16C83AB70031DF63 /* icon-list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824CD16C83AB70031DF63 /* icon-list@2x.png */; };
+		6AE824E816C841BA0031DF63 /* icon-cereals-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D016C841BA0031DF63 /* icon-cereals-selected@2x.png */; };
+		6AE824E916C841BA0031DF63 /* icon-cereals@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D116C841BA0031DF63 /* icon-cereals@2x.png */; };
+		6AE824EA16C841BA0031DF63 /* icon-coconut-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D216C841BA0031DF63 /* icon-coconut-selected@2x.png */; };
+		6AE824EB16C841BA0031DF63 /* icon-coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D316C841BA0031DF63 /* icon-coconut@2x.png */; };
+		6AE824EC16C841BA0031DF63 /* icon-corn-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D416C841BA0031DF63 /* icon-corn-selected@2x.png */; };
+		6AE824ED16C841BA0031DF63 /* icon-corn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D516C841BA0031DF63 /* icon-corn@2x.png */; };
+		6AE824EE16C841BA0031DF63 /* icon-egg-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D616C841BA0031DF63 /* icon-egg-selected@2x.png */; };
+		6AE824EF16C841BA0031DF63 /* icon-egg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D716C841BA0031DF63 /* icon-egg@2x.png */; };
+		6AE824F016C841BA0031DF63 /* icon-fish-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D816C841BA0031DF63 /* icon-fish-selected@2x.png */; };
+		6AE824F116C841BA0031DF63 /* icon-fish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824D916C841BA0031DF63 /* icon-fish@2x.png */; };
+		6AE824F216C841BA0031DF63 /* icon-gluten-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824DA16C841BA0031DF63 /* icon-gluten-selected@2x.png */; };
+		6AE824F316C841BA0031DF63 /* icon-gluten@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824DB16C841BA0031DF63 /* icon-gluten@2x.png */; };
+		6AE824F416C841BA0031DF63 /* icon-lactose-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824DC16C841BA0031DF63 /* icon-lactose-selected@2x.png */; };
+		6AE824F516C841BA0031DF63 /* icon-lactose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824DD16C841BA0031DF63 /* icon-lactose@2x.png */; };
+		6AE824F616C841BA0031DF63 /* icon-milk-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824DE16C841BA0031DF63 /* icon-milk-selected@2x.png */; };
+		6AE824F716C841BA0031DF63 /* icon-milk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824DF16C841BA0031DF63 /* icon-milk@2x.png */; };
+		6AE824F816C841BA0031DF63 /* icon-peanuts-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E016C841BA0031DF63 /* icon-peanuts-selected@2x.png */; };
+		6AE824F916C841BA0031DF63 /* icon-peanuts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E116C841BA0031DF63 /* icon-peanuts@2x.png */; };
+		6AE824FA16C841BA0031DF63 /* icon-shellfish-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E216C841BA0031DF63 /* icon-shellfish-selected@2x.png */; };
+		6AE824FB16C841BA0031DF63 /* icon-shellfish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E316C841BA0031DF63 /* icon-shellfish@2x.png */; };
+		6AE824FC16C841BA0031DF63 /* icon-soybean-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E416C841BA0031DF63 /* icon-soybean-selected@2x.png */; };
+		6AE824FD16C841BA0031DF63 /* icon-soybean@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E516C841BA0031DF63 /* icon-soybean@2x.png */; };
+		6AE824FE16C841BA0031DF63 /* icon-sulfites-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E616C841BA0031DF63 /* icon-sulfites-selected@2x.png */; };
+		6AE824FF16C841BA0031DF63 /* icon-sulfites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AE824E716C841BA0031DF63 /* icon-sulfites@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +138,30 @@
 		6AE824CA16C838B50031DF63 /* icon-scan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-scan@2x.png"; path = "assets/icon-scan@2x.png"; sourceTree = "<group>"; };
 		6AE824CC16C83AB70031DF63 /* icon-allergies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-allergies@2x.png"; path = "assets/icon-allergies@2x.png"; sourceTree = "<group>"; };
 		6AE824CD16C83AB70031DF63 /* icon-list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-list@2x.png"; path = "assets/icon-list@2x.png"; sourceTree = "<group>"; };
+		6AE824D016C841BA0031DF63 /* icon-cereals-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-cereals-selected@2x.png"; path = "assets/icon-cereals-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824D116C841BA0031DF63 /* icon-cereals@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-cereals@2x.png"; path = "assets/icon-cereals@2x.png"; sourceTree = "<group>"; };
+		6AE824D216C841BA0031DF63 /* icon-coconut-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-coconut-selected@2x.png"; path = "assets/icon-coconut-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824D316C841BA0031DF63 /* icon-coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-coconut@2x.png"; path = "assets/icon-coconut@2x.png"; sourceTree = "<group>"; };
+		6AE824D416C841BA0031DF63 /* icon-corn-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-corn-selected@2x.png"; path = "assets/icon-corn-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824D516C841BA0031DF63 /* icon-corn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-corn@2x.png"; path = "assets/icon-corn@2x.png"; sourceTree = "<group>"; };
+		6AE824D616C841BA0031DF63 /* icon-egg-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-egg-selected@2x.png"; path = "assets/icon-egg-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824D716C841BA0031DF63 /* icon-egg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-egg@2x.png"; path = "assets/icon-egg@2x.png"; sourceTree = "<group>"; };
+		6AE824D816C841BA0031DF63 /* icon-fish-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-fish-selected@2x.png"; path = "assets/icon-fish-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824D916C841BA0031DF63 /* icon-fish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-fish@2x.png"; path = "assets/icon-fish@2x.png"; sourceTree = "<group>"; };
+		6AE824DA16C841BA0031DF63 /* icon-gluten-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-gluten-selected@2x.png"; path = "assets/icon-gluten-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824DB16C841BA0031DF63 /* icon-gluten@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-gluten@2x.png"; path = "assets/icon-gluten@2x.png"; sourceTree = "<group>"; };
+		6AE824DC16C841BA0031DF63 /* icon-lactose-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-lactose-selected@2x.png"; path = "assets/icon-lactose-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824DD16C841BA0031DF63 /* icon-lactose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-lactose@2x.png"; path = "assets/icon-lactose@2x.png"; sourceTree = "<group>"; };
+		6AE824DE16C841BA0031DF63 /* icon-milk-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-milk-selected@2x.png"; path = "assets/icon-milk-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824DF16C841BA0031DF63 /* icon-milk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-milk@2x.png"; path = "assets/icon-milk@2x.png"; sourceTree = "<group>"; };
+		6AE824E016C841BA0031DF63 /* icon-peanuts-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-peanuts-selected@2x.png"; path = "assets/icon-peanuts-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824E116C841BA0031DF63 /* icon-peanuts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-peanuts@2x.png"; path = "assets/icon-peanuts@2x.png"; sourceTree = "<group>"; };
+		6AE824E216C841BA0031DF63 /* icon-shellfish-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-shellfish-selected@2x.png"; path = "assets/icon-shellfish-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824E316C841BA0031DF63 /* icon-shellfish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-shellfish@2x.png"; path = "assets/icon-shellfish@2x.png"; sourceTree = "<group>"; };
+		6AE824E416C841BA0031DF63 /* icon-soybean-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-soybean-selected@2x.png"; path = "assets/icon-soybean-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824E516C841BA0031DF63 /* icon-soybean@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-soybean@2x.png"; path = "assets/icon-soybean@2x.png"; sourceTree = "<group>"; };
+		6AE824E616C841BA0031DF63 /* icon-sulfites-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-sulfites-selected@2x.png"; path = "assets/icon-sulfites-selected@2x.png"; sourceTree = "<group>"; };
+		6AE824E716C841BA0031DF63 /* icon-sulfites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-sulfites@2x.png"; path = "assets/icon-sulfites@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +369,30 @@
 		6AE824C116C834EF0031DF63 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6AE824D016C841BA0031DF63 /* icon-cereals-selected@2x.png */,
+				6AE824D116C841BA0031DF63 /* icon-cereals@2x.png */,
+				6AE824D216C841BA0031DF63 /* icon-coconut-selected@2x.png */,
+				6AE824D316C841BA0031DF63 /* icon-coconut@2x.png */,
+				6AE824D416C841BA0031DF63 /* icon-corn-selected@2x.png */,
+				6AE824D516C841BA0031DF63 /* icon-corn@2x.png */,
+				6AE824D616C841BA0031DF63 /* icon-egg-selected@2x.png */,
+				6AE824D716C841BA0031DF63 /* icon-egg@2x.png */,
+				6AE824D816C841BA0031DF63 /* icon-fish-selected@2x.png */,
+				6AE824D916C841BA0031DF63 /* icon-fish@2x.png */,
+				6AE824DA16C841BA0031DF63 /* icon-gluten-selected@2x.png */,
+				6AE824DB16C841BA0031DF63 /* icon-gluten@2x.png */,
+				6AE824DC16C841BA0031DF63 /* icon-lactose-selected@2x.png */,
+				6AE824DD16C841BA0031DF63 /* icon-lactose@2x.png */,
+				6AE824DE16C841BA0031DF63 /* icon-milk-selected@2x.png */,
+				6AE824DF16C841BA0031DF63 /* icon-milk@2x.png */,
+				6AE824E016C841BA0031DF63 /* icon-peanuts-selected@2x.png */,
+				6AE824E116C841BA0031DF63 /* icon-peanuts@2x.png */,
+				6AE824E216C841BA0031DF63 /* icon-shellfish-selected@2x.png */,
+				6AE824E316C841BA0031DF63 /* icon-shellfish@2x.png */,
+				6AE824E416C841BA0031DF63 /* icon-soybean-selected@2x.png */,
+				6AE824E516C841BA0031DF63 /* icon-soybean@2x.png */,
+				6AE824E616C841BA0031DF63 /* icon-sulfites-selected@2x.png */,
+				6AE824E716C841BA0031DF63 /* icon-sulfites@2x.png */,
 				6AE824CC16C83AB70031DF63 /* icon-allergies@2x.png */,
 				6AE824CD16C83AB70031DF63 /* icon-list@2x.png */,
 				6AE824CA16C838B50031DF63 /* icon-scan@2x.png */,
@@ -399,6 +471,30 @@
 				6AE824CB16C838B50031DF63 /* icon-scan@2x.png in Resources */,
 				6AE824CE16C83AB70031DF63 /* icon-allergies@2x.png in Resources */,
 				6AE824CF16C83AB70031DF63 /* icon-list@2x.png in Resources */,
+				6AE824E816C841BA0031DF63 /* icon-cereals-selected@2x.png in Resources */,
+				6AE824E916C841BA0031DF63 /* icon-cereals@2x.png in Resources */,
+				6AE824EA16C841BA0031DF63 /* icon-coconut-selected@2x.png in Resources */,
+				6AE824EB16C841BA0031DF63 /* icon-coconut@2x.png in Resources */,
+				6AE824EC16C841BA0031DF63 /* icon-corn-selected@2x.png in Resources */,
+				6AE824ED16C841BA0031DF63 /* icon-corn@2x.png in Resources */,
+				6AE824EE16C841BA0031DF63 /* icon-egg-selected@2x.png in Resources */,
+				6AE824EF16C841BA0031DF63 /* icon-egg@2x.png in Resources */,
+				6AE824F016C841BA0031DF63 /* icon-fish-selected@2x.png in Resources */,
+				6AE824F116C841BA0031DF63 /* icon-fish@2x.png in Resources */,
+				6AE824F216C841BA0031DF63 /* icon-gluten-selected@2x.png in Resources */,
+				6AE824F316C841BA0031DF63 /* icon-gluten@2x.png in Resources */,
+				6AE824F416C841BA0031DF63 /* icon-lactose-selected@2x.png in Resources */,
+				6AE824F516C841BA0031DF63 /* icon-lactose@2x.png in Resources */,
+				6AE824F616C841BA0031DF63 /* icon-milk-selected@2x.png in Resources */,
+				6AE824F716C841BA0031DF63 /* icon-milk@2x.png in Resources */,
+				6AE824F816C841BA0031DF63 /* icon-peanuts-selected@2x.png in Resources */,
+				6AE824F916C841BA0031DF63 /* icon-peanuts@2x.png in Resources */,
+				6AE824FA16C841BA0031DF63 /* icon-shellfish-selected@2x.png in Resources */,
+				6AE824FB16C841BA0031DF63 /* icon-shellfish@2x.png in Resources */,
+				6AE824FC16C841BA0031DF63 /* icon-soybean-selected@2x.png in Resources */,
+				6AE824FD16C841BA0031DF63 /* icon-soybean@2x.png in Resources */,
+				6AE824FE16C841BA0031DF63 /* icon-sulfites-selected@2x.png in Resources */,
+				6AE824FF16C841BA0031DF63 /* icon-sulfites@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

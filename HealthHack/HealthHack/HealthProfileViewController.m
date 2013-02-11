@@ -74,13 +74,20 @@
     HealthCollectionViewCell *cell =
         [_collectionView dequeueReusableCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier
                                                    forIndexPath:indexPath];
+
+    cell.allergenLabel.text = profileAllergenDict[kProductName];
+
+    NSString *imageFileName = [NSString stringWithFormat:@"icon-%@",
+                               [profileAllergenDict[kProductName] lowercaseString]];
+
     if ([profileAllergenDict[kProductValue] boolValue]) {
         cell.backgroundColor = [UIColor redColor];
+        imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
     } else {
         cell.backgroundColor = [UIColor grayColor];
     }   
-    cell.allergenLabel.text = profileAllergenDict[kProductName];
-    
+
+    cell.allergenImage.image = [UIImage imageNamed:imageFileName];
     return cell;
 }
 

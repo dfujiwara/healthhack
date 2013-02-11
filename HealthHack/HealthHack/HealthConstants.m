@@ -15,6 +15,7 @@ NSString *kProductAllergenName = @"allergen_name";
 NSString *kProductAllergenValue = @"allergen_value";
 NSString *kProductName = @"name";
 NSString *kProductValue = @"value";
+NSString *kProductAllergic = @"allergic";
 
 NSString *kNotificationNameShowItem = @"show_item";
 

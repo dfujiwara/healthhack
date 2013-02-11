@@ -61,15 +61,23 @@
     NSUInteger maxAllergentIndicator = 0;
     for (NSDictionary *allergenDict in _itemDictionary[kProductAllergens]) {
         NSLog(@"Allergen is %@", allergenDict[kProductAllergenName]);
-        NSString *allergentName = allergenDict[kProductAllergenName];
-        if ([userAllergens[allergentName] boolValue]) {
-            NSUInteger allergentValue = [allergenDict[kProductAllergenValue] unsignedIntegerValue];
-            maxAllergentIndicator = MAX(maxAllergentIndicator, allergentValue);
+        NSString *allergenName = allergenDict[kProductAllergenName];
+        NSUInteger allergenValue = [allergenDict[kProductAllergenValue]
+                                     unsignedIntegerValue];
 
-            if (allergentValue > 0) {
-                NSMutableSet *set = _allergenAlertArray[allergentValue - 1];
-                [set addObject:allergentName];
+        if (allergenValue > 0) {
+            NSMutableArray *array = _allergenAlertArray[allergenValue - 1];
+            NSMutableDictionary *allergenDataDict = [NSMutableDictionary dictionary];
+            allergenDataDict[kProductAllergenName] = allergenName;
+
+            if ([userAllergens[allergenName] boolValue]){
+                maxAllergentIndicator = MAX(maxAllergentIndicator, allergenValue);
+                allergenDataDict[kProductAllergic] = @(YES);
+            } else {
+                allergenDataDict[kProductAllergic] = @(NO);
             }
+
+            [array addObject:allergenDataDict];
         }
     }
 
@@ -124,21 +132,31 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    UIColor *backgroundColor = nil;
-    NSString *allergenName = nil;
+    NSArray *array = nil;
     if (indexPath.section == 0) {
-        allergenName = _allergenArray[indexPath.row];
-        backgroundColor = [UIColor redColor];
+        array = _allergenArray;
     } else {
-        allergenName = _warningArray[indexPath.row];
-        backgroundColor = [UIColor yellowColor];
+        array = _warningArray;
     }
 
     HealthCollectionViewCell *cell =
     [_collectionView dequeueReusableCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier
                                                forIndexPath:indexPath];
-    cell.backgroundColor = backgroundColor;
+
+    NSDictionary *dict = array[indexPath.row];
+    NSString *allergenName = dict[kProductAllergenName];
+    NSString *imageFileName = [NSString stringWithFormat:@"icon-%@",
+                               [allergenName lowercaseString]];
+
+    if ([dict[kProductAllergic] boolValue]) {
+        imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
+        cell.backgroundColor = [UIColor redColor];
+    } else {
+        cell.backgroundColor = [UIColor grayColor];
+    }
+
     cell.allergenLabel.text = allergenName;
+    cell.allergenImage.image = [UIImage imageNamed:imageFileName];
 
     return cell;
 }
