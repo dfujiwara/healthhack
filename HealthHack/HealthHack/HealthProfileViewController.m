@@ -77,8 +77,11 @@
 
     cell.allergenLabel.text = profileAllergenDict[kProductName];
 
-    NSString *imageFileName = [NSString stringWithFormat:@"icon-%@",
-                               [profileAllergenDict[kProductName] lowercaseString]];
+    // Make sure to format the image name correctly by lower casing
+    // and replacing any spaces with '-'.
+    NSString *allergenName = [profileAllergenDict[kProductName] lowercaseString];
+    allergenName = [allergenName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    NSString *imageFileName = [NSString stringWithFormat:@"icon-%@", allergenName];
 
     if ([profileAllergenDict[kProductValue] boolValue]) {
         cell.backgroundColor = [UIColor redColor];
