@@ -78,6 +78,9 @@
     reader.showsZBarControls = NO;
     reader.tabBarItem.title = @"Scan";
     reader.tabBarItem.image = [UIImage imageNamed:@"icon-scan"];
+
+    UINavigationItem *navigationItem = [reader navigationItem];
+    navigationItem.title = @"Scan Barcode";
     return reader;
 }
 
@@ -92,16 +95,25 @@
 
     ZBarReaderViewController *reader = [self setupBarReaderViewController];
 
+    UINavigationController *readerNavigationController =
+        [[UINavigationController alloc] initWithRootViewController:reader];
+
     HealthItemListViewController *itemListViewController =
         [[HealthItemListViewController alloc] initWithNibName:nil bundle:nil];
 
+    UINavigationController *itemListNavigationController =
+        [[UINavigationController alloc] initWithRootViewController:itemListViewController];
+
     HealthProfileViewController *profileViewController =
         [[HealthProfileViewController alloc] initWithNibName:nil bundle:nil];
-    
+
+    UINavigationController *profileViewNavigationController =
+        [[UINavigationController alloc] initWithRootViewController:profileViewController];
+
     _tabBarController = [[UITabBarController alloc] init];
-    [_tabBarController setViewControllers:@[reader,
-                                            itemListViewController,
-                                            profileViewController]];
+    [_tabBarController setViewControllers:@[readerNavigationController,
+                                            itemListNavigationController,
+                                            profileViewNavigationController]];
 
     [self.window setRootViewController:_tabBarController];
 

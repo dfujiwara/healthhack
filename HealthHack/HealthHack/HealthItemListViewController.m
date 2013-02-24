@@ -19,6 +19,9 @@
     if (self) {
         self.tabBarItem.title = @"List";
         self.tabBarItem.image = [UIImage imageNamed:@"icon-list"];
+
+        UINavigationItem *navigationItem = [self navigationItem];
+        navigationItem.title = @"Product List";
     }
     return self;
 }
@@ -40,12 +43,6 @@
     } else {
         _scannedItemListView.tableFooterView = nil;
     }
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

@@ -20,6 +20,9 @@
     if (self) {
         self.tabBarItem.title = @"Allergens";
         self.tabBarItem.image = [UIImage imageNamed:@"icon-allergies"];
+
+        UINavigationItem *navigationItem = [self navigationItem];
+        navigationItem.title = @"My Allergies";
     }
     return self;
 }
