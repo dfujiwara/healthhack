@@ -12,5 +12,6 @@
     <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *scannedItemListView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end

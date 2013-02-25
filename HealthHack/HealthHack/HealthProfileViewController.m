@@ -7,6 +7,9 @@
 //
 
 #import "HealthProfileViewController.h"
+
+#import <QuartzCore/QuartzCore.h>
+
 #import "HealthFoodEssentialsStore.h"
 #import "HealthConstants.h"
 #import "HealthCollectionViewCell.h"
@@ -87,13 +90,14 @@
     NSString *imageFileName = [NSString stringWithFormat:@"icon-%@", allergenName];
 
     if ([profileAllergenDict[kProductValue] boolValue]) {
-        cell.backgroundColor = [UIColor redColor];
+        cell.contentView.backgroundColor = [UIColor redColor];
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
     } else {
-        cell.backgroundColor = [UIColor grayColor];
+        cell.contentView.backgroundColor = [UIColor grayColor];
     }   
 
     cell.allergenImage.image = [UIImage imageNamed:imageFileName];
+    cell.layer.cornerRadius = 3;
     return cell;
 }
 
@@ -103,7 +107,28 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(100, 80);
+    return CGSizeMake(106, 90);
+}
+
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+                        layout:(UICollectionViewLayout *)collectionViewLayout
+        insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(2.0, 0, 0, 0);
+}
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView
+                   layout:(UICollectionViewLayout *)collectionViewLayout
+minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 1.0;
+}
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView
+                   layout:(UICollectionViewLayout *)collectionViewLayout
+minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 1.0;
 }
 
 

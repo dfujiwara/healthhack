@@ -19,9 +19,6 @@
     if (self) {
         self.tabBarItem.title = @"List";
         self.tabBarItem.image = [UIImage imageNamed:@"icon-list"];
-
-        UINavigationItem *navigationItem = [self navigationItem];
-        navigationItem.title = @"Product List";
     }
     return self;
 }

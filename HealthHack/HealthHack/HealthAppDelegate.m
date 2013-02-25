@@ -97,23 +97,18 @@
 
     UINavigationController *readerNavigationController =
         [[UINavigationController alloc] initWithRootViewController:reader];
+    readerNavigationController.navigationBar.tintColor = [UIColor redColor];
 
     HealthItemListViewController *itemListViewController =
         [[HealthItemListViewController alloc] initWithNibName:nil bundle:nil];
 
-    UINavigationController *itemListNavigationController =
-        [[UINavigationController alloc] initWithRootViewController:itemListViewController];
-
     HealthProfileViewController *profileViewController =
         [[HealthProfileViewController alloc] initWithNibName:nil bundle:nil];
 
-    UINavigationController *profileViewNavigationController =
-        [[UINavigationController alloc] initWithRootViewController:profileViewController];
-
     _tabBarController = [[UITabBarController alloc] init];
     [_tabBarController setViewControllers:@[readerNavigationController,
-                                            itemListNavigationController,
-                                            profileViewNavigationController]];
+                                            itemListViewController,
+                                            profileViewController]];
 
     [self.window setRootViewController:_tabBarController];
 
