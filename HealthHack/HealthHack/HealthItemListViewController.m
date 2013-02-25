@@ -65,6 +65,7 @@
     NSDictionary *scannedItemDict =
         [HealthFoodEssentialsStore sharedStore].scannedItems[indexPath.row];
     cell.textLabel.text = scannedItemDict[kProductNameKey];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13.0];
     return cell;
 }
 

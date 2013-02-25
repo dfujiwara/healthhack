@@ -43,7 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _productNameButtonItem.title = _itemDictionary[kProductNameKey];
+    _productNameLabel.text = _itemDictionary[kProductNameKey];
 
     UINib *nib = [UINib nibWithNibName:kHealthCollectionViewCellNibName
                                 bundle:nil];

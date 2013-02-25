@@ -11,13 +11,13 @@
 @interface HealthItemViewController : UIViewController
     <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (strong, nonatomic) IBOutlet UIView *indicatorView;
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UILabel *indicatorLabel;
+@property (weak, nonatomic) IBOutlet UIView *indicatorView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *indicatorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
 
 - (id)initWithItemDictionary:(NSDictionary *)itemDictionary;
 
 - (IBAction)dismiss:(id)sender;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *productNameButtonItem;
 
 @end
