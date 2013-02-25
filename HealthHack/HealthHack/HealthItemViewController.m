@@ -53,7 +53,8 @@
                                 bundle:nil];
     [_collectionView registerNib:nib
       forCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier];
-    
+
+    _collectionView.backgroundColor = [UIColor grayColor];
     NSDictionary *userAllergens = [[HealthFoodEssentialsStore sharedStore]
                                    userAllergens];
 
@@ -100,11 +101,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - private methods
 
@@ -147,9 +143,12 @@
                                                forIndexPath:indexPath];
 
     NSDictionary *dict = array[indexPath.row];
-    NSString *allergenName = dict[kProductAllergenName];
-    NSString *imageFileName = [NSString stringWithFormat:@"icon-%@",
-                               [allergenName lowercaseString]];
+
+    // Make sure to format the image name correctly by lower casing
+    // and replacing any spaces with '-'.
+    NSString *allergenName = [dict[kProductAllergenName] lowercaseString];
+    allergenName = [allergenName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    NSString *imageFileName = [NSString stringWithFormat:@"icon-%@", allergenName];
 
     if ([dict[kProductAllergic] boolValue]) {
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
@@ -161,7 +160,6 @@
     cell.allergenLabel.text = allergenName;
     cell.allergenImage.image = [UIImage imageNamed:imageFileName];
     cell.layer.cornerRadius = 3;
-    
     return cell;
 }
 

@@ -39,23 +39,16 @@
                                 bundle:nil];
     [_collectionView registerNib:nib
       forCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier];
-    
+
+    _collectionView.backgroundColor = [UIColor grayColor];
+
     void (^completionHandler)(NSDictionary *profile) = ^void(NSDictionary *profile) {
         NSLog(@"Profile is %@", profile);
         [_collectionView reloadData];
     };
+
+    _toolbar.userInteractionEnabled = NO;
     [[HealthFoodEssentialsStore sharedStore] getProfile:completionHandler];
-}
-
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [[HealthFoodEssentialsStore sharedStore] setProfile:nil];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -93,7 +86,7 @@
         cell.contentView.backgroundColor = [UIColor redColor];
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
     } else {
-        cell.contentView.backgroundColor = [UIColor grayColor];
+        cell.contentView.backgroundColor = [UIColor lightGrayColor];
     }   
 
     cell.allergenImage.image = [UIImage imageNamed:imageFileName];

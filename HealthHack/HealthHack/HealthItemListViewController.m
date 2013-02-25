@@ -24,6 +24,12 @@
 }
 
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _toolbar.userInteractionEnabled = NO;
+}
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [_scannedItemListView reloadData];
