@@ -12,6 +12,8 @@
 		6A6C06B916DA8D4100E3E07F /* icon-tree-nuts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06B516DA8D4100E3E07F /* icon-tree-nuts@2x.png */; };
 		6A6C06BA16DA8D4100E3E07F /* icon-wheat-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06B616DA8D4100E3E07F /* icon-wheat-selected@2x.png */; };
 		6A6C06BB16DA8D4100E3E07F /* icon-wheat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06B716DA8D4100E3E07F /* icon-wheat@2x.png */; };
+		6A6C06BE16DB263C00E3E07F /* HealthCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6C06BD16DB263B00E3E07F /* HealthCollectionHeaderView.m */; };
+		6A6C06C016DB269D00E3E07F /* HealthCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06BF16DB269C00E3E07F /* HealthCollectionHeaderView.xib */; };
 		6AC1511516C6EE2500EF64C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511416C6EE2500EF64C2 /* UIKit.framework */; };
 		6AC1511716C6EE2500EF64C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511616C6EE2500EF64C2 /* Foundation.framework */; };
 		6AC1511916C6EE2500EF64C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511816C6EE2500EF64C2 /* CoreGraphics.framework */; };
@@ -79,6 +81,9 @@
 		6A6C06B516DA8D4100E3E07F /* icon-tree-nuts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-tree-nuts@2x.png"; path = "assets/icon-tree-nuts@2x.png"; sourceTree = "<group>"; };
 		6A6C06B616DA8D4100E3E07F /* icon-wheat-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-wheat-selected@2x.png"; path = "assets/icon-wheat-selected@2x.png"; sourceTree = "<group>"; };
 		6A6C06B716DA8D4100E3E07F /* icon-wheat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-wheat@2x.png"; path = "assets/icon-wheat@2x.png"; sourceTree = "<group>"; };
+		6A6C06BC16DB263B00E3E07F /* HealthCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCollectionHeaderView.h; sourceTree = "<group>"; };
+		6A6C06BD16DB263B00E3E07F /* HealthCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCollectionHeaderView.m; sourceTree = "<group>"; };
+		6A6C06BF16DB269C00E3E07F /* HealthCollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthCollectionHeaderView.xib; sourceTree = "<group>"; };
 		6AC1511116C6EE2500EF64C2 /* FoodGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC1511416C6EE2500EF64C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AC1511616C6EE2500EF64C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -371,6 +376,9 @@
 				6AE824B816C79A580031DF63 /* HealthCollectionViewCell.h */,
 				6AE824B916C79A580031DF63 /* HealthCollectionViewCell.m */,
 				6AE824BF16C79AAA0031DF63 /* HealthCollectionViewCell.xib */,
+				6A6C06BC16DB263B00E3E07F /* HealthCollectionHeaderView.h */,
+				6A6C06BD16DB263B00E3E07F /* HealthCollectionHeaderView.m */,
+				6A6C06BF16DB269C00E3E07F /* HealthCollectionHeaderView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -511,6 +519,7 @@
 				6A6C06B916DA8D4100E3E07F /* icon-tree-nuts@2x.png in Resources */,
 				6A6C06BA16DA8D4100E3E07F /* icon-wheat-selected@2x.png in Resources */,
 				6A6C06BB16DA8D4100E3E07F /* icon-wheat@2x.png in Resources */,
+				6A6C06C016DB269D00E3E07F /* HealthCollectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +540,7 @@
 				6AC1518216C75F2F00EF64C2 /* HealthConstants.m in Sources */,
 				6AC1518616C76E9800EF64C2 /* HealthProfileViewController.m in Sources */,
 				6AE824BA16C79A580031DF63 /* HealthCollectionViewCell.m in Sources */,
+				6A6C06BE16DB263C00E3E07F /* HealthCollectionHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

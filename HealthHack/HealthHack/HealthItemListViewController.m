@@ -85,9 +85,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HealthItemViewController *itemViewController =
         [[HealthItemViewController alloc] initWithItemDictionary:scannedItemDict];
 
-    UINavigationController *navController =
-        [[UINavigationController alloc] initWithRootViewController:itemViewController];
-    [self presentViewController:navController animated:YES completion:nil];
+    [self presentViewController:itemViewController animated:YES completion:nil];
 }
 
 @end

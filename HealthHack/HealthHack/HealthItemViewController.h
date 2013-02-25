@@ -17,4 +17,7 @@
 
 - (id)initWithItemDictionary:(NSDictionary *)itemDictionary;
 
+- (IBAction)dismiss:(id)sender;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *productNameButtonItem;
+
 @end

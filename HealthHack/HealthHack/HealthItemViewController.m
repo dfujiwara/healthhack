@@ -13,6 +13,7 @@
 #import "HealthConstants.h"
 #import "HealthFoodEssentialsStore.h"
 #import "HealthCollectionViewCell.h"
+#import "HealthCollectionHeaderView.h"
 
 @interface HealthItemViewController () {
     NSDictionary *_itemDictionary;
@@ -20,8 +21,6 @@
     NSMutableArray *_warningArray;
     NSArray *_allergenAlertArray;
 }
-
-- (void)dismiss:(id)sender;
 
 @end
 
@@ -31,11 +30,6 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _itemDictionary = itemDictionary;
-        self.navigationItem.title = _itemDictionary[kProductNameKey];
-        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                             target:self
-                                                                             action:@selector(dismiss:)];
-        self.navigationItem.rightBarButtonItem = bbi;
     }
     return self;
 }
@@ -49,10 +43,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    _productNameButtonItem.title = _itemDictionary[kProductNameKey];
+
     UINib *nib = [UINib nibWithNibName:kHealthCollectionViewCellNibName
                                 bundle:nil];
     [_collectionView registerNib:nib
       forCellWithReuseIdentifier:kReuseableHealthCollectionViewCellIdentifier];
+
+    nib = [UINib nibWithNibName:kHealthCollectionHeaderViewNibName
+                         bundle:nil];
+
+    [_collectionView registerNib:nib
+      forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+             withReuseIdentifier:kReuseableHealthCollectionHeaderViewIdentifier];
 
     _collectionView.backgroundColor = [UIColor grayColor];
     NSDictionary *userAllergens = [[HealthFoodEssentialsStore sharedStore]
@@ -154,7 +157,7 @@
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
         cell.backgroundColor = [UIColor redColor];
     } else {
-        cell.backgroundColor = [UIColor grayColor];
+        cell.backgroundColor = [UIColor lightGrayColor];
     }
 
     cell.allergenLabel.text = allergenName;
@@ -163,6 +166,27 @@
     return cell;
 }
 
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableView = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        HealthCollectionHeaderView * headerView =
+        [_collectionView
+         dequeueReusableSupplementaryViewOfKind:kind
+         withReuseIdentifier:kReuseableHealthCollectionHeaderViewIdentifier
+         forIndexPath:indexPath];
+
+        if (indexPath.section == 0) {
+            headerView.headerLabel.text = @"Contains";
+        } else {
+            headerView.headerLabel.text = @"Might Contain";
+        }
+        reusableView = headerView;
+    }
+    return reusableView;
+}
 
 #pragma mark - collection flow layout delegate
 
@@ -176,7 +200,7 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                         layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(2.0, 0, 0, 0);
+    return UIEdgeInsetsMake(2, 0, 2, 0);
 }
 
 
@@ -191,6 +215,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 1.0;
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(collectionView.bounds.size.width, 20.0);
 }
 
 @end

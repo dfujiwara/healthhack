@@ -47,11 +47,8 @@
          HealthItemViewController *itemViewController =
             [[HealthItemViewController alloc] initWithItemDictionary:productDict];
 
-         UINavigationController *navController =
-            [[UINavigationController alloc] initWithRootViewController:itemViewController];
-
          UIViewController *vc = _tabBarController.viewControllers[viewControllerIndex];
-         [vc presentViewController:navController animated:YES completion:nil];
+         [vc presentViewController:itemViewController animated:YES completion:nil];
      }];
 }
 
@@ -79,8 +76,27 @@
     reader.tabBarItem.title = @"Scan";
     reader.tabBarItem.image = [UIImage imageNamed:@"icon-scan"];
 
-    UINavigationItem *navigationItem = [reader navigationItem];
-    navigationItem.title = @"Scan Barcode";
+    // To show the status bar.
+    reader.wantsFullScreenLayout = NO;
+
+    UIToolbar *toolbar = [[UIToolbar alloc]
+                          initWithFrame:CGRectMake(0, -1,
+                                                   reader.view.bounds.size.width,
+                                                   44)];
+    UIBarButtonItem *flexibleBarButtonItem =
+        [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                      target:nil
+                                                      action:nil];
+
+    UIBarButtonItem *titleBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Scan Barcode"
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
+    toolbar.items = @[flexibleBarButtonItem, titleBarButtonItem, flexibleBarButtonItem];
+    toolbar.tintColor = [UIColor redColor];
+    toolbar.userInteractionEnabled = NO;
+    [reader.view addSubview:toolbar];
     return reader;
 }
 
@@ -95,10 +111,6 @@
 
     ZBarReaderViewController *reader = [self setupBarReaderViewController];
 
-    UINavigationController *readerNavigationController =
-        [[UINavigationController alloc] initWithRootViewController:reader];
-    readerNavigationController.navigationBar.tintColor = [UIColor redColor];
-
     HealthItemListViewController *itemListViewController =
         [[HealthItemListViewController alloc] initWithNibName:nil bundle:nil];
 
@@ -106,7 +118,7 @@
         [[HealthProfileViewController alloc] initWithNibName:nil bundle:nil];
 
     _tabBarController = [[UITabBarController alloc] init];
-    [_tabBarController setViewControllers:@[readerNavigationController,
+    [_tabBarController setViewControllers:@[reader,
                                             itemListViewController,
                                             profileViewController]];
 
