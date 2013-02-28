@@ -22,6 +22,9 @@
 		6A9A3A0716DF3BC800881495 /* product-bad-face@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A3A0416DF3BC800881495 /* product-bad-face@2x.png */; };
 		6A9A3A0816DF3BC800881495 /* product-good-face@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A3A0516DF3BC800881495 /* product-good-face@2x.png */; };
 		6A9A3A0916DF3BC800881495 /* product-ok-face@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A3A0616DF3BC800881495 /* product-ok-face@2x.png */; };
+		6A9A3A0D16DF477300881495 /* product-bad-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A3A0A16DF477300881495 /* product-bad-bg@2x.png */; };
+		6A9A3A0E16DF477300881495 /* product-good-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A3A0B16DF477300881495 /* product-good-bg@2x.png */; };
+		6A9A3A0F16DF477300881495 /* product-ok-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A3A0C16DF477300881495 /* product-ok-bg@2x.png */; };
 		6AC1511516C6EE2500EF64C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511416C6EE2500EF64C2 /* UIKit.framework */; };
 		6AC1511716C6EE2500EF64C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511616C6EE2500EF64C2 /* Foundation.framework */; };
 		6AC1511916C6EE2500EF64C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511816C6EE2500EF64C2 /* CoreGraphics.framework */; };
@@ -100,6 +103,9 @@
 		6A9A3A0416DF3BC800881495 /* product-bad-face@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product-bad-face@2x.png"; path = "assets/product-bad-face@2x.png"; sourceTree = "<group>"; };
 		6A9A3A0516DF3BC800881495 /* product-good-face@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product-good-face@2x.png"; path = "assets/product-good-face@2x.png"; sourceTree = "<group>"; };
 		6A9A3A0616DF3BC800881495 /* product-ok-face@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product-ok-face@2x.png"; path = "assets/product-ok-face@2x.png"; sourceTree = "<group>"; };
+		6A9A3A0A16DF477300881495 /* product-bad-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product-bad-bg@2x.png"; path = "assets/product-bad-bg@2x.png"; sourceTree = "<group>"; };
+		6A9A3A0B16DF477300881495 /* product-good-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product-good-bg@2x.png"; path = "assets/product-good-bg@2x.png"; sourceTree = "<group>"; };
+		6A9A3A0C16DF477300881495 /* product-ok-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product-ok-bg@2x.png"; path = "assets/product-ok-bg@2x.png"; sourceTree = "<group>"; };
 		6AC1511116C6EE2500EF64C2 /* FoodGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC1511416C6EE2500EF64C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AC1511616C6EE2500EF64C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -402,6 +408,9 @@
 		6AE824C116C834EF0031DF63 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6A9A3A0A16DF477300881495 /* product-bad-bg@2x.png */,
+				6A9A3A0B16DF477300881495 /* product-good-bg@2x.png */,
+				6A9A3A0C16DF477300881495 /* product-ok-bg@2x.png */,
 				6A9A3A0416DF3BC800881495 /* product-bad-face@2x.png */,
 				6A9A3A0516DF3BC800881495 /* product-good-face@2x.png */,
 				6A9A3A0616DF3BC800881495 /* product-ok-face@2x.png */,
@@ -552,6 +561,9 @@
 				6A9A3A0716DF3BC800881495 /* product-bad-face@2x.png in Resources */,
 				6A9A3A0816DF3BC800881495 /* product-good-face@2x.png in Resources */,
 				6A9A3A0916DF3BC800881495 /* product-ok-face@2x.png in Resources */,
+				6A9A3A0D16DF477300881495 /* product-bad-bg@2x.png in Resources */,
+				6A9A3A0E16DF477300881495 /* product-good-bg@2x.png in Resources */,
+				6A9A3A0F16DF477300881495 /* product-ok-bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

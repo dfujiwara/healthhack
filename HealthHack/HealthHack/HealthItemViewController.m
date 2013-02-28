@@ -91,17 +91,20 @@
 
     switch(maxAllergentIndicator) {
         case 2:
-            _indicatorView.backgroundColor = [UIColor redColor];
+            _indicatorView.backgroundColor =
+                [UIColor colorWithPatternImage:[UIImage imageNamed:@"product-bad-bg"]];
             _itemDictionary[kProductAlleryScanResult] = @(kScannedResultBad);
             _indicatorImageView.image = [UIImage imageNamed:@"product-bad-face"];
             break;
         case 1:
-            _indicatorView.backgroundColor = [UIColor yellowColor];
+            _indicatorView.backgroundColor =
+                [UIColor colorWithPatternImage:[UIImage imageNamed:@"product-ok-bg"]];
             _itemDictionary[kProductAlleryScanResult] = @(kScannedResultOk);
             _indicatorImageView.image = [UIImage imageNamed:@"product-ok-face"];
             break;
         default:
-            _indicatorView.backgroundColor = [UIColor greenColor];
+            _indicatorView.backgroundColor =
+                [UIColor colorWithPatternImage:[UIImage imageNamed:@"product-good-bg"]];
             _itemDictionary[kProductAlleryScanResult] = @(kScannedResultGood);
             _indicatorImageView.image = [UIImage imageNamed:@"product-good-face"];
             break;
