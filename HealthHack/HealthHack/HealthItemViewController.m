@@ -92,18 +92,18 @@
     switch(maxAllergentIndicator) {
         case 2:
             _indicatorView.backgroundColor = [UIColor redColor];
-            _indicatorLabel.text = @"Sad Face";
             _itemDictionary[kProductAlleryScanResult] = @(kScannedResultBad);
+            _indicatorImageView.image = [UIImage imageNamed:@"product-bad-face"];
             break;
         case 1:
             _indicatorView.backgroundColor = [UIColor yellowColor];
-            _indicatorLabel.text = @"Confused Face";
             _itemDictionary[kProductAlleryScanResult] = @(kScannedResultOk);
+            _indicatorImageView.image = [UIImage imageNamed:@"product-ok-face"];
             break;
         default:
             _indicatorView.backgroundColor = [UIColor greenColor];
-            _indicatorLabel.text = @"Happy Face";
             _itemDictionary[kProductAlleryScanResult] = @(kScannedResultGood);
+            _indicatorImageView.image = [UIImage imageNamed:@"product-good-face"];
             break;
     }
 }

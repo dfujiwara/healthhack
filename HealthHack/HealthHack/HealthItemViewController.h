@@ -13,8 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UILabel *indicatorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *indicatorImageView;
 
 - (id)initWithItemDictionary:(NSDictionary *)itemDictionary;
 
