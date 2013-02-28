@@ -66,6 +66,27 @@
         [HealthFoodEssentialsStore sharedStore].scannedItems[indexPath.row];
     cell.textLabel.text = scannedItemDict[kProductNameKey];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13.0];
+
+    NSNumber *scannedResult = scannedItemDict[kProductAlleryScanResult];
+    if (scannedResult) {
+        switch ([scannedResult integerValue]) {
+            case kScannedResultGood:
+                cell.accessoryView = [[UIImageView alloc]
+                                      initWithImage:[UIImage imageNamed:@"list-icon-good"]];
+                break;
+            case kScannedResultOk:
+                cell.accessoryView = [[UIImageView alloc]
+                                      initWithImage:[UIImage imageNamed:@"list-icon-ok"]];
+                break;
+            case kScannedResultBad:
+                cell.accessoryView = [[UIImageView alloc]
+                                      initWithImage:[UIImage imageNamed:@"list-icon-bad"]];
+                break;
+            default:
+                // Do nothing in the default case.
+                break;
+        }
+    }
     return cell;
 }
 

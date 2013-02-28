@@ -219,9 +219,11 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
                     NSLog(@"Label is %@", jsonResponse);
                     NSString *productName = jsonResponse[kProductNameKey];
                     NSArray *productAllergens = jsonResponse[kProductAllergens];
-                    NSDictionary *productDict = @{kProductNameKey: productName,
-                                                  kProductUPCKey: barcodeUPC,
-                                                  kProductAllergens:productAllergens};
+                    NSMutableDictionary *productDict =
+                        [@{kProductNameKey: productName,
+                           kProductUPCKey: barcodeUPC,
+                           kProductAllergens:productAllergens}
+                         mutableCopy];
 
                     if (![self hasScannedBefore:productDict]) {
                         // Only add previously unscanned item.

@@ -17,6 +17,7 @@ extern NSString *kProductAllergenValue;
 extern NSString *kProductName;
 extern NSString *kProductValue;
 extern NSString *kProductAllergic;
+extern NSString *kProductAlleryScanResult;
 
 // Notification names.
 extern NSString *kNotificationNameShowItem;
@@ -24,3 +25,10 @@ extern NSString *kNotificationNameShowItem;
 // Notification info keys
 extern NSString *kNotificationKeyProductDict;
 extern NSString *kNotificationKeyViewControllerIndex;
+
+typedef enum {
+    kScannedResultGood = 0,
+    kScannedResultOk = 1,
+    kScannedResultBad = 2
+
+} kScannedResult;

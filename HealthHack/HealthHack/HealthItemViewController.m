@@ -16,7 +16,7 @@
 #import "HealthCollectionHeaderView.h"
 
 @interface HealthItemViewController () {
-    NSDictionary *_itemDictionary;
+    NSMutableDictionary *_itemDictionary;
     NSMutableArray *_allergenArray;
     NSMutableArray *_warningArray;
     NSArray *_allergenAlertArray;
@@ -26,7 +26,7 @@
 
 @implementation HealthItemViewController
 
-- (id)initWithItemDictionary:(NSDictionary *)itemDictionary {
+- (id)initWithItemDictionary:(NSMutableDictionary *)itemDictionary {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _itemDictionary = itemDictionary;
@@ -58,6 +58,7 @@
              withReuseIdentifier:kReuseableHealthCollectionHeaderViewIdentifier];
 
     _collectionView.backgroundColor = [UIColor grayColor];
+
     NSDictionary *userAllergens = [[HealthFoodEssentialsStore sharedStore]
                                    userAllergens];
 
@@ -92,14 +93,17 @@
         case 2:
             _indicatorView.backgroundColor = [UIColor redColor];
             _indicatorLabel.text = @"Sad Face";
+            _itemDictionary[kProductAlleryScanResult] = @(kScannedResultBad);
             break;
         case 1:
             _indicatorView.backgroundColor = [UIColor yellowColor];
             _indicatorLabel.text = @"Confused Face";
+            _itemDictionary[kProductAlleryScanResult] = @(kScannedResultOk);
             break;
         default:
             _indicatorView.backgroundColor = [UIColor greenColor];
             _indicatorLabel.text = @"Happy Face";
+            _itemDictionary[kProductAlleryScanResult] = @(kScannedResultGood);
             break;
     }
 }

@@ -16,6 +16,9 @@
 		6A6C06C016DB269D00E3E07F /* HealthCollectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06BF16DB269C00E3E07F /* HealthCollectionHeaderView.xib */; };
 		6A9A39FC16DF2F7700881495 /* icon-sesame-seeds-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A39FA16DF2F7700881495 /* icon-sesame-seeds-selected@2x.png */; };
 		6A9A39FD16DF2F7700881495 /* icon-sesame-seeds@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A39FB16DF2F7700881495 /* icon-sesame-seeds@2x.png */; };
+		6A9A3A0116DF31A700881495 /* list-icon-bad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A39FE16DF31A700881495 /* list-icon-bad@2x.png */; };
+		6A9A3A0216DF31A700881495 /* list-icon-good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A39FF16DF31A700881495 /* list-icon-good@2x.png */; };
+		6A9A3A0316DF31A700881495 /* list-icon-ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9A3A0016DF31A700881495 /* list-icon-ok@2x.png */; };
 		6AC1511516C6EE2500EF64C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511416C6EE2500EF64C2 /* UIKit.framework */; };
 		6AC1511716C6EE2500EF64C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511616C6EE2500EF64C2 /* Foundation.framework */; };
 		6AC1511916C6EE2500EF64C2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC1511816C6EE2500EF64C2 /* CoreGraphics.framework */; };
@@ -88,6 +91,9 @@
 		6A6C06BF16DB269C00E3E07F /* HealthCollectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthCollectionHeaderView.xib; sourceTree = "<group>"; };
 		6A9A39FA16DF2F7700881495 /* icon-sesame-seeds-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-sesame-seeds-selected@2x.png"; path = "assets/icon-sesame-seeds-selected@2x.png"; sourceTree = "<group>"; };
 		6A9A39FB16DF2F7700881495 /* icon-sesame-seeds@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-sesame-seeds@2x.png"; path = "assets/icon-sesame-seeds@2x.png"; sourceTree = "<group>"; };
+		6A9A39FE16DF31A700881495 /* list-icon-bad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list-icon-bad@2x.png"; path = "assets/list-icon-bad@2x.png"; sourceTree = "<group>"; };
+		6A9A39FF16DF31A700881495 /* list-icon-good@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list-icon-good@2x.png"; path = "assets/list-icon-good@2x.png"; sourceTree = "<group>"; };
+		6A9A3A0016DF31A700881495 /* list-icon-ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list-icon-ok@2x.png"; path = "assets/list-icon-ok@2x.png"; sourceTree = "<group>"; };
 		6AC1511116C6EE2500EF64C2 /* FoodGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC1511416C6EE2500EF64C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AC1511616C6EE2500EF64C2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -390,6 +396,9 @@
 		6AE824C116C834EF0031DF63 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				6A9A39FE16DF31A700881495 /* list-icon-bad@2x.png */,
+				6A9A39FF16DF31A700881495 /* list-icon-good@2x.png */,
+				6A9A3A0016DF31A700881495 /* list-icon-ok@2x.png */,
 				6A9A39FA16DF2F7700881495 /* icon-sesame-seeds-selected@2x.png */,
 				6A9A39FB16DF2F7700881495 /* icon-sesame-seeds@2x.png */,
 				6A6C06B416DA8D4100E3E07F /* icon-tree-nuts-selected@2x.png */,
@@ -528,6 +537,9 @@
 				6A6C06C016DB269D00E3E07F /* HealthCollectionHeaderView.xib in Resources */,
 				6A9A39FC16DF2F7700881495 /* icon-sesame-seeds-selected@2x.png in Resources */,
 				6A9A39FD16DF2F7700881495 /* icon-sesame-seeds@2x.png in Resources */,
+				6A9A3A0116DF31A700881495 /* list-icon-bad@2x.png in Resources */,
+				6A9A3A0216DF31A700881495 /* list-icon-good@2x.png in Resources */,
+				6A9A3A0316DF31A700881495 /* list-icon-ok@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
