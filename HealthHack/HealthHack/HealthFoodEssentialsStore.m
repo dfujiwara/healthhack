@@ -118,7 +118,9 @@ static NSString *const kAppId = @"foodguard";
         [connection start];
     };
 
-    if (_sessionId){
+    if (_userProfile) {
+        completionHandler(_userProfile);
+    }else if (_sessionId){
         getProfileHandler(_sessionId);
     } else {
         [self createSession:getProfileHandler];
@@ -203,33 +205,21 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
                                          NSError *error) =
             ^void(NSDictionary *jsonResponse, NSError *error){
                 if (!error) {
-                    if ([jsonResponse count] == 0) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            UIAlertView *alertView = [[UIAlertView alloc]
-                                                      initWithTitle:@"No item"
-                                                      message:@"Didn't find the item"
-                                                      delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                            [alertView show];
-                        });
-                        return;
+                    NSMutableDictionary *productDict = nil;
+                    if ([jsonResponse count] > 0) {
+                        NSLog(@"Label is %@", jsonResponse);
+                        NSString *productName = jsonResponse[kProductNameKey];
+                        NSArray *productAllergens = jsonResponse[kProductAllergens];
+                        productDict = [@{kProductNameKey: productName,
+                                         kProductUPCKey: barcodeUPC,
+                                         kProductAllergens:productAllergens}
+                                       mutableCopy];
+
+                        if (![self hasScannedBefore:productDict]) {
+                            // Only add previously unscanned item.
+                            [_scannedItems addObject:productDict];
+                        }
                     }
-
-                    NSLog(@"Label is %@", jsonResponse);
-                    NSString *productName = jsonResponse[kProductNameKey];
-                    NSArray *productAllergens = jsonResponse[kProductAllergens];
-                    NSMutableDictionary *productDict =
-                        [@{kProductNameKey: productName,
-                           kProductUPCKey: barcodeUPC,
-                           kProductAllergens:productAllergens}
-                         mutableCopy];
-
-                    if (![self hasScannedBefore:productDict]) {
-                        // Only add previously unscanned item.
-                        [_scannedItems addObject:productDict];
-                    }
-
                     if (completionHandler) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             completionHandler(productDict);

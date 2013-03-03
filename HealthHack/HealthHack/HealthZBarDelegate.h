@@ -11,4 +11,7 @@
 
 @interface HealthZBarDelegate : NSObject <ZBarReaderDelegate>
 
+// Designated initializer.
+- (id)initWithController:(ZBarReaderViewController *)viewController;
+
 @end

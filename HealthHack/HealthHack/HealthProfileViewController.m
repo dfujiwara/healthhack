@@ -42,8 +42,20 @@
 
     _collectionView.backgroundColor = [UIColor grayColor];
 
+    UILabel *loadingLabel =
+        [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
+                                                  self.view.bounds.size.width - (2 * 10),
+                                                  40)];
+    loadingLabel.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.8];
+    loadingLabel.text = @"Loading...";
+    loadingLabel.textAlignment = NSTextAlignmentCenter;
+    loadingLabel.textColor = [UIColor whiteColor];
+    loadingLabel.center = self.view.center;
+    [self.view addSubview:loadingLabel];
+
     void (^completionHandler)(NSDictionary *profile) = ^void(NSDictionary *profile) {
         NSLog(@"Profile is %@", profile);
+        [loadingLabel removeFromSuperview];
         [_collectionView reloadData];
     };
     [[HealthFoodEssentialsStore sharedStore] getProfile:completionHandler];

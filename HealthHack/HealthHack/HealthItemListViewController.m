@@ -86,6 +86,7 @@
                 break;
         }
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
 }
 
