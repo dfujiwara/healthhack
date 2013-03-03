@@ -13,6 +13,7 @@
 #import "HealthFoodEssentialsStore.h"
 #import "HealthConstants.h"
 #import "HealthCollectionViewCell.h"
+#import "HealthDesignFactory.h"
 
 
 @implementation HealthProfileViewController
@@ -33,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 
     UINib *nib = [UINib nibWithNibName:kHealthCollectionViewCellNibName
                                 bundle:nil];
@@ -46,9 +46,9 @@
         NSLog(@"Profile is %@", profile);
         [_collectionView reloadData];
     };
-
-    _toolbar.userInteractionEnabled = NO;
     [[HealthFoodEssentialsStore sharedStore] getProfile:completionHandler];
+    
+    _toolbar.userInteractionEnabled = NO;
 }
 
 
@@ -83,10 +83,12 @@
     NSString *imageFileName = [NSString stringWithFormat:@"icon-%@", allergenName];
 
     if ([profileAllergenDict[kProductValue] boolValue]) {
-        cell.contentView.backgroundColor = [UIColor redColor];
+        cell.contentView.backgroundColor =
+            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedRedColor];
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
     } else {
-        cell.contentView.backgroundColor = [UIColor lightGrayColor];
+        cell.contentView.backgroundColor =
+            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedGrayColor];
     }   
 
     cell.allergenImage.image = [UIImage imageNamed:imageFileName];
@@ -129,14 +131,11 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableDictionary *profile =
         [HealthFoodEssentialsStore sharedStore].userProfile;
-
     NSMutableArray *profileAllergens = profile[kProductAllergens];
-    
     NSMutableDictionary *profileAllergenDict = profileAllergens[indexPath.row];
     BOOL currentValue = [profileAllergenDict[kProductValue] boolValue];
-
     profileAllergenDict[kProductValue] = @(!currentValue);
-    
+
     [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
 }
 

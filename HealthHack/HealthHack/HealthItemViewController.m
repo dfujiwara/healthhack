@@ -14,6 +14,7 @@
 #import "HealthFoodEssentialsStore.h"
 #import "HealthCollectionViewCell.h"
 #import "HealthCollectionHeaderView.h"
+#import "HealthDesignFactory.h"
 
 @interface HealthItemViewController () {
     NSMutableDictionary *_itemDictionary;
@@ -101,6 +102,9 @@
                 [UIColor colorWithPatternImage:[UIImage imageNamed:@"product-ok-bg"]];
             _itemDictionary[kProductAlleryScanResult] = @(kScannedResultOk);
             _indicatorImageView.image = [UIImage imageNamed:@"product-ok-face"];
+
+            // Make sure the product name is visible with the yellow background.
+            _productNameLabel.textColor = [UIColor grayColor];
             break;
         default:
             _indicatorView.backgroundColor =
@@ -162,9 +166,11 @@
 
     if ([dict[kProductAllergic] boolValue]) {
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
-        cell.backgroundColor = [UIColor redColor];
+        cell.backgroundColor =
+            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedRedColor];
     } else {
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.backgroundColor =
+            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedGrayColor];
     }
 
     cell.allergenLabel.text = allergenName;

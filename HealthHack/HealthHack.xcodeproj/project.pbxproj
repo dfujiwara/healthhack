@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A42E85E16E2DB9A00F85BD4 /* HealthDesignFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A42E85D16E2DB9A00F85BD4 /* HealthDesignFactory.m */; };
 		6A6C06B316DA8BF600E3E07F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06B216DA8BF600E3E07F /* Default-568h@2x.png */; };
 		6A6C06B816DA8D4100E3E07F /* icon-tree-nuts-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06B416DA8D4100E3E07F /* icon-tree-nuts-selected@2x.png */; };
 		6A6C06B916DA8D4100E3E07F /* icon-tree-nuts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6C06B516DA8D4100E3E07F /* icon-tree-nuts@2x.png */; };
@@ -87,6 +88,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A42E85C16E2DB9A00F85BD4 /* HealthDesignFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthDesignFactory.h; sourceTree = "<group>"; };
+		6A42E85D16E2DB9A00F85BD4 /* HealthDesignFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthDesignFactory.m; sourceTree = "<group>"; };
 		6A6C06B216DA8BF600E3E07F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6A6C06B416DA8D4100E3E07F /* icon-tree-nuts-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-tree-nuts-selected@2x.png"; path = "assets/icon-tree-nuts-selected@2x.png"; sourceTree = "<group>"; };
 		6A6C06B516DA8D4100E3E07F /* icon-tree-nuts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-tree-nuts@2x.png"; path = "assets/icon-tree-nuts@2x.png"; sourceTree = "<group>"; };
@@ -379,6 +382,8 @@
 			children = (
 				6AC1517416C72C4100EF64C2 /* HealthConnection.h */,
 				6AC1517516C72C4100EF64C2 /* HealthConnection.m */,
+				6A42E85C16E2DB9A00F85BD4 /* HealthDesignFactory.h */,
+				6A42E85D16E2DB9A00F85BD4 /* HealthDesignFactory.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -585,6 +590,7 @@
 				6AC1518616C76E9800EF64C2 /* HealthProfileViewController.m in Sources */,
 				6AE824BA16C79A580031DF63 /* HealthCollectionViewCell.m in Sources */,
 				6A6C06BE16DB263C00E3E07F /* HealthCollectionHeaderView.m in Sources */,
+				6A42E85E16E2DB9A00F85BD4 /* HealthDesignFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
