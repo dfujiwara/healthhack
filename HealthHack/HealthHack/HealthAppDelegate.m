@@ -92,7 +92,6 @@
                                     target:nil
                                     action:nil];
     toolbar.items = @[flexibleBarButtonItem, titleBarButtonItem, flexibleBarButtonItem];
-    toolbar.tintColor = [UIColor redColor];
     toolbar.userInteractionEnabled = NO;
     [reader.view addSubview:toolbar];
     return reader;
@@ -127,6 +126,14 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
+    // Set appearences.
+
+    // The header-bg is one point short in height.
+    UIImage *toolbarHeaderImage = [UIImage imageNamed:@"header-bg"];
+    toolbarHeaderImage= [toolbarHeaderImage resizableImageWithCapInsets:UIEdgeInsetsMake(42, 0, 0, 0)];
+    [[UIToolbar appearance] setBackgroundImage:toolbarHeaderImage
+                                         forToolbarPosition:UIToolbarPositionAny
+                                                 barMetrics:UIBarMetricsDefault];
     return YES;
 }
 

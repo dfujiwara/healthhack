@@ -164,15 +164,15 @@
     allergenName = [allergenName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
     NSString *imageFileName = [NSString stringWithFormat:@"icon-%@", allergenName];
 
+    UIImage *backgroundImage = nil;
     if ([dict[kProductAllergic] boolValue]) {
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
-        cell.backgroundColor =
-            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedRedColor];
+        backgroundImage = [UIImage imageNamed:@"allergy-item-selected-bg"];
     } else {
-        cell.backgroundColor =
-            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedGrayColor];
+        backgroundImage = [UIImage imageNamed:@"allergy-item-bg"];
     }
-
+    
+    cell.backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
     cell.allergenLabel.text = allergenName;
     cell.allergenImage.image = [UIImage imageNamed:imageFileName];
     cell.layer.cornerRadius = 3;

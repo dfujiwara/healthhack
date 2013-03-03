@@ -42,24 +42,19 @@
 
     _collectionView.backgroundColor = [UIColor grayColor];
 
-    UILabel *loadingLabel =
-        [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
-                                                  self.view.bounds.size.width - (2 * 10),
-                                                  40)];
-    loadingLabel.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.8];
-    loadingLabel.text = @"Loading...";
-    loadingLabel.textAlignment = NSTextAlignmentCenter;
-    loadingLabel.textColor = [UIColor whiteColor];
-    loadingLabel.center = self.view.center;
-    [self.view addSubview:loadingLabel];
+    // Show the acitivy indicator
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [_activityIndicator startAnimating];
 
     void (^completionHandler)(NSDictionary *profile) = ^void(NSDictionary *profile) {
         NSLog(@"Profile is %@", profile);
-        [loadingLabel removeFromSuperview];
+        [_activityIndicator stopAnimating];
+        _activityIndicator.hidden = YES;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [_collectionView reloadData];
     };
     [[HealthFoodEssentialsStore sharedStore] getProfile:completionHandler];
-    
+
     _toolbar.userInteractionEnabled = NO;
 }
 
@@ -94,15 +89,15 @@
     allergenName = [allergenName stringByReplacingOccurrencesOfString:@" " withString:@"-"];
     NSString *imageFileName = [NSString stringWithFormat:@"icon-%@", allergenName];
 
+    UIImage *backgroundImage = nil;
     if ([profileAllergenDict[kProductValue] boolValue]) {
-        cell.contentView.backgroundColor =
-            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedRedColor];
+        backgroundImage = [UIImage imageNamed:@"allergy-item-selected-bg"];
         imageFileName = [NSString stringWithFormat:@"%@-selected", imageFileName];
     } else {
-        cell.contentView.backgroundColor =
-            [HealthDesignFactory colorForSetting:kHealthColorSettingSelectedGrayColor];
+        backgroundImage = [UIImage imageNamed:@"allergy-item-bg"];
     }   
 
+    cell.backgroundView = [[UIImageView alloc]initWithImage:backgroundImage];
     cell.allergenImage.image = [UIImage imageNamed:imageFileName];
     cell.layer.cornerRadius = 3;
     return cell;

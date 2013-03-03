@@ -57,6 +57,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString *barcodeData = symbol.data;
     NSLog(@"the bar code data is %@", barcodeData);
 
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     UILabel *scanningLabel =
         [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
                                                   _viewController.readerView.bounds.size.width - (2 * 10),
@@ -71,6 +72,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     _viewController.tracksSymbols = NO;
 
     void (^completionHandler)(NSDictionary *productDict) = ^void(NSDictionary *productDict) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
         if (productDict) {
             NSDictionary *userInfo = @{kNotificationKeyProductDict: productDict,
                                        kNotificationKeyViewControllerIndex: @(0)};
