@@ -22,3 +22,6 @@ NSString *kNotificationNameShowItem = @"show_item";
 
 NSString *kNotificationKeyProductDict = @"product_dict";
 NSString *kNotificationKeyViewControllerIndex = @"viewcontroller_index";
+
+NSString *kAllergenUserDefaultKey = @"user_allergens";
+NSString *kScannedItemUserDefaultKey = @"scanned_items";

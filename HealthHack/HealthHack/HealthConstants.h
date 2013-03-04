@@ -26,6 +26,10 @@ extern NSString *kNotificationNameShowItem;
 extern NSString *kNotificationKeyProductDict;
 extern NSString *kNotificationKeyViewControllerIndex;
 
+// User default keys
+extern NSString *kAllergenUserDefaultKey;
+extern NSString *kScannedItemUserDefaultKey;
+
 typedef enum {
     kScannedResultGood = 0,
     kScannedResultOk = 1,

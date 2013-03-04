@@ -137,4 +137,9 @@
     return YES;
 }
 
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[HealthFoodEssentialsStore sharedStore] save];
+}
+
 @end

@@ -26,4 +26,7 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler;
 
 - (NSDictionary *)userAllergens;
 
+// Saves data in this store.
+- (void)save;
+
 @end

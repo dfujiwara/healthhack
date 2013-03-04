@@ -18,7 +18,11 @@ static NSString *const kAppId = @"foodguard";
     NSString *_sessionId;
 }
 
+// Determine whether we have scanned the item before.
 - (BOOL)hasScannedBefore:(NSDictionary *)scannedItemDict;
+
+// Restore the user allergens from the user defaults.
+- (NSMutableDictionary *)restoreUserAllergens:(NSMutableDictionary *)userProfile;
 
 @end
 
@@ -28,13 +32,25 @@ static NSString *const kAppId = @"foodguard";
 + (HealthFoodEssentialsStore *)sharedStore {
     static HealthFoodEssentialsStore *foodEssentialsStore = nil;
     if (!foodEssentialsStore){
-        // set up the singleton instance
+        // Set up the singleton instance.
         foodEssentialsStore = [[HealthFoodEssentialsStore alloc] init];
-        foodEssentialsStore.scannedItems = [NSMutableArray array];
+
+        // Restore the previously scanned items.
+        NSMutableArray *storedScannedItems =
+            [[NSUserDefaults standardUserDefaults]
+             objectForKey:kScannedItemUserDefaultKey];
+
+        if (storedScannedItems) {
+            foodEssentialsStore.scannedItems = storedScannedItems;
+        } else {
+            foodEssentialsStore.scannedItems = [NSMutableArray array];
+        }
     }
     return foodEssentialsStore;
 }
 
+
+#pragma mark - public methods
 
 - (void)createSession:(void (^)(NSString *sessiondId))completionHandler {
     static NSString *uid = @"foodguard_no_food_for_you";
@@ -83,8 +99,8 @@ static NSString *const kAppId = @"foodguard";
 
     void (^getProfileHandler)(NSString *sessionId) = ^void(NSString *sessionId){
         NSString *queryParameterString =
-        [NSString stringWithFormat:@"sid=%@&f=%@&api_key=%@",
-         sessionId, @"json", kApiId];
+            [NSString stringWithFormat:@"sid=%@&f=%@&api_key=%@",
+             sessionId, @"json", kApiId];
 
         NSString *urlString = [NSString stringWithFormat:@"%@/getprofile?%@",
                                kURLString, queryParameterString];
@@ -103,7 +119,7 @@ static NSString *const kAppId = @"foodguard";
             ^void(NSMutableDictionary *jsonResponse, NSError *error){
                 if (!error) {
                     NSLog(@"Profile is %@", jsonResponse);
-                    _userProfile = jsonResponse;
+                    _userProfile = [self restoreUserAllergens:jsonResponse];
                     if (completionHandler) {
                         dispatch_async(dispatch_get_main_queue(), ^{
                             completionHandler(_userProfile);
@@ -255,6 +271,18 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
     return [userAllergensDict copy];
 }
 
+
+- (void)save {
+    // Save the user's allergens.
+    [[NSUserDefaults standardUserDefaults] setObject:[self userAllergens]
+                                              forKey:kAllergenUserDefaultKey];
+
+    // Save the previously scanned items.
+    [[NSUserDefaults standardUserDefaults] setObject:_scannedItems
+                                              forKey:kScannedItemUserDefaultKey];
+}
+
+
 #pragma mark - private methods
 
 - (BOOL)hasScannedBefore:(NSDictionary *)scannedItemDict {
@@ -268,5 +296,31 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
     return hasScannedBefore;
 }
 
+
+- (NSMutableDictionary *)restoreUserAllergens:(NSMutableDictionary *)userProfile {
+    NSMutableArray *allergens = userProfile[kProductAllergens];
+
+    NSDictionary *storedUserAllergens = [[NSUserDefaults standardUserDefaults]
+                                         objectForKey:kAllergenUserDefaultKey];
+    if (storedUserAllergens) {
+        // If there is previously stored user allergens, restore them in the
+        // given user profile.
+
+        for (NSMutableDictionary *allergen in allergens) {
+            NSNumber *allergenSetting = @(NO);
+            if ([storedUserAllergens objectForKey:allergen[kProductName]]) {
+                allergenSetting = storedUserAllergens[allergen[kProductName]];
+            }
+            allergen[kProductValue] = allergenSetting;
+        }
+    } else {
+        // Else set all allergens to the default setting which is
+        // 'not allergic'.
+        for (NSMutableDictionary *allergen in allergens) {
+            allergen[kProductValue] = @(NO);
+        }
+    }
+    return userProfile;
+}
 
 @end
