@@ -24,6 +24,9 @@ static NSString *const kAppId = @"foodguard";
 // Restore the user allergens from the user defaults.
 - (NSMutableDictionary *)restoreUserAllergens:(NSMutableDictionary *)userProfile;
 
+// Retrieve the scanned item list archive file path.
+- (NSString *)scannedItemArchiveFilePath;
+
 @end
 
 
@@ -37,9 +40,8 @@ static NSString *const kAppId = @"foodguard";
 
         // Restore the previously scanned items.
         NSMutableArray *storedScannedItems =
-            [[NSUserDefaults standardUserDefaults]
-             objectForKey:kScannedItemUserDefaultKey];
-
+            [NSKeyedUnarchiver unarchiveObjectWithFile:[foodEssentialsStore
+                                                        scannedItemArchiveFilePath]];
         if (storedScannedItems) {
             foodEssentialsStore.scannedItems = storedScannedItems;
         } else {
@@ -278,8 +280,8 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
                                               forKey:kAllergenUserDefaultKey];
 
     // Save the previously scanned items.
-    [[NSUserDefaults standardUserDefaults] setObject:_scannedItems
-                                              forKey:kScannedItemUserDefaultKey];
+    [NSKeyedArchiver archiveRootObject:_scannedItems
+                                toFile:[self scannedItemArchiveFilePath]];
 }
 
 
@@ -294,6 +296,15 @@ completionHandler:(void (^)(NSDictionary *productDict))completionHandler {
         }
     }
     return hasScannedBefore;
+}
+
+
+- (NSString *)scannedItemArchiveFilePath {
+    NSArray *documentDirectories =
+        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = documentDirectories[0];
+    return [documentDirectory
+            stringByAppendingPathComponent:@"scanned_items.archive"];
 }
 
 

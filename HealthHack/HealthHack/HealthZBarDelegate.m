@@ -32,8 +32,9 @@
 
 // Overriding the parent's designated initializer.
 - (id)init {
-    // Raise an exception here.
-    return nil;
+    @throw [NSException exceptionWithName:@"Wrong initializer"
+                                   reason:@"Not supported"
+                                 userInfo:nil];
 }
 
 
@@ -58,17 +59,13 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSLog(@"the bar code data is %@", barcodeData);
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    UILabel *scanningLabel =
-        [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
-                                                  _viewController.readerView.bounds.size.width - (2 * 10),
-                                                  40)];
-    scanningLabel.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.8];
-    scanningLabel.text = @"Scanning...";
-    scanningLabel.textAlignment = NSTextAlignmentCenter;
-    scanningLabel.textColor = [UIColor whiteColor];
-    scanningLabel.center = _viewController.readerView.center;
-    
-    [_viewController.readerView addSubview:scanningLabel];
+
+    UIActivityIndicatorView *indicatorView =
+        [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicatorView.center = _viewController.readerView.center;
+    [_viewController.readerView addSubview:indicatorView];
+    [indicatorView startAnimating];
+
     _viewController.tracksSymbols = NO;
 
     void (^completionHandler)(NSDictionary *productDict) = ^void(NSDictionary *productDict) {
@@ -91,7 +88,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             [alertView show];
         }
         dispatch_async(dispatch_get_main_queue(), ^(void) {
-            [scanningLabel removeFromSuperview];
+            [indicatorView stopAnimating];
+            [indicatorView removeFromSuperview];
             _viewController.tracksSymbols = YES;
             _scanningInProgress = NO;
         });
